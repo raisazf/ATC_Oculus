@@ -2962,35 +2962,35 @@ struct RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B
 struct StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B  : public TextReader_tB8D43017CB6BE1633E5A86D64E7757366507C1F7
 {
 	// System.IO.Stream System.IO.StreamReader::_stream
-	Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ____stream_3;
+	Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ____stream_6;
 	// System.Text.Encoding System.IO.StreamReader::_encoding
-	Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ____encoding_4;
+	Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ____encoding_7;
 	// System.Text.Decoder System.IO.StreamReader::_decoder
-	Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* ____decoder_5;
+	Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* ____decoder_8;
 	// System.Byte[] System.IO.StreamReader::_byteBuffer
-	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ____byteBuffer_6;
+	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ____byteBuffer_9;
 	// System.Char[] System.IO.StreamReader::_charBuffer
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____charBuffer_7;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____charBuffer_10;
 	// System.Int32 System.IO.StreamReader::_charPos
-	int32_t ____charPos_8;
+	int32_t ____charPos_11;
 	// System.Int32 System.IO.StreamReader::_charLen
-	int32_t ____charLen_9;
+	int32_t ____charLen_12;
 	// System.Int32 System.IO.StreamReader::_byteLen
-	int32_t ____byteLen_10;
+	int32_t ____byteLen_13;
 	// System.Int32 System.IO.StreamReader::_bytePos
-	int32_t ____bytePos_11;
+	int32_t ____bytePos_14;
 	// System.Int32 System.IO.StreamReader::_maxCharsPerBuffer
-	int32_t ____maxCharsPerBuffer_12;
+	int32_t ____maxCharsPerBuffer_15;
 	// System.Boolean System.IO.StreamReader::_detectEncoding
-	bool ____detectEncoding_13;
+	bool ____detectEncoding_16;
 	// System.Boolean System.IO.StreamReader::_checkPreamble
-	bool ____checkPreamble_14;
+	bool ____checkPreamble_17;
 	// System.Boolean System.IO.StreamReader::_isBlocked
-	bool ____isBlocked_15;
+	bool ____isBlocked_18;
 	// System.Boolean System.IO.StreamReader::_closable
-	bool ____closable_16;
+	bool ____closable_19;
 	// System.Threading.Tasks.Task System.IO.StreamReader::_asyncReadTask
-	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ____asyncReadTask_17;
+	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ____asyncReadTask_20;
 };
 
 struct StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B_StaticFields

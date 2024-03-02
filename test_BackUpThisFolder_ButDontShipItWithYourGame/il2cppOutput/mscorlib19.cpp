@@ -2920,35 +2920,35 @@ struct SafeHandle_tC1A4DA80DA89B867CC011B707A07275230321BF7  : public CriticalFi
 struct StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B  : public TextReader_tB8D43017CB6BE1633E5A86D64E7757366507C1F7
 {
 	// System.IO.Stream System.IO.StreamReader::_stream
-	Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ____stream_3;
+	Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ____stream_6;
 	// System.Text.Encoding System.IO.StreamReader::_encoding
-	Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ____encoding_4;
+	Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ____encoding_7;
 	// System.Text.Decoder System.IO.StreamReader::_decoder
-	Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* ____decoder_5;
+	Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* ____decoder_8;
 	// System.Byte[] System.IO.StreamReader::_byteBuffer
-	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ____byteBuffer_6;
+	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ____byteBuffer_9;
 	// System.Char[] System.IO.StreamReader::_charBuffer
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____charBuffer_7;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____charBuffer_10;
 	// System.Int32 System.IO.StreamReader::_charPos
-	int32_t ____charPos_8;
+	int32_t ____charPos_11;
 	// System.Int32 System.IO.StreamReader::_charLen
-	int32_t ____charLen_9;
+	int32_t ____charLen_12;
 	// System.Int32 System.IO.StreamReader::_byteLen
-	int32_t ____byteLen_10;
+	int32_t ____byteLen_13;
 	// System.Int32 System.IO.StreamReader::_bytePos
-	int32_t ____bytePos_11;
+	int32_t ____bytePos_14;
 	// System.Int32 System.IO.StreamReader::_maxCharsPerBuffer
-	int32_t ____maxCharsPerBuffer_12;
+	int32_t ____maxCharsPerBuffer_15;
 	// System.Boolean System.IO.StreamReader::_detectEncoding
-	bool ____detectEncoding_13;
+	bool ____detectEncoding_16;
 	// System.Boolean System.IO.StreamReader::_checkPreamble
-	bool ____checkPreamble_14;
+	bool ____checkPreamble_17;
 	// System.Boolean System.IO.StreamReader::_isBlocked
-	bool ____isBlocked_15;
+	bool ____isBlocked_18;
 	// System.Boolean System.IO.StreamReader::_closable
-	bool ____closable_16;
+	bool ____closable_19;
 	// System.Threading.Tasks.Task System.IO.StreamReader::_asyncReadTask
-	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ____asyncReadTask_17;
+	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ____asyncReadTask_20;
 };
 
 struct StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B_StaticFields
@@ -5920,10 +5920,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CReadLineAsyncInternalU3Ed__61_MoveNex
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_3 = V_1;
 			NullCheck(L_3);
-			int32_t L_4 = L_3->____charPos_8;
+			int32_t L_4 = L_3->____charPos_11;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_5 = V_1;
 			NullCheck(L_5);
-			int32_t L_6 = L_5->____charLen_9;
+			int32_t L_6 = L_5->____charLen_12;
 			V_3 = (bool)((((int32_t)L_4) == ((int32_t)L_6))? 1 : 0);
 			bool L_7 = V_3;
 			if (!L_7)
@@ -6003,15 +6003,15 @@ IL_00af_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_21 = V_1;
 			NullCheck(L_21);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_22 = L_21->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_22 = L_21->____charBuffer_10;
 			V_6 = L_22;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_23 = V_1;
 			NullCheck(L_23);
-			int32_t L_24 = L_23->____charLen_9;
+			int32_t L_24 = L_23->____charLen_12;
 			V_7 = L_24;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_25 = V_1;
 			NullCheck(L_25);
-			int32_t L_26 = L_25->____charPos_8;
+			int32_t L_26 = L_25->____charPos_11;
 			V_8 = L_26;
 			int32_t L_27 = V_8;
 			V_9 = L_27;
@@ -6084,7 +6084,7 @@ IL_0125_1:
 			int32_t L_50 = ((int32_t)il2cpp_codegen_add(L_49, 1));
 			V_8 = L_50;
 			NullCheck(L_48);
-			L_48->____charPos_8 = L_50;
+			L_48->____charPos_11 = L_50;
 			Il2CppChar L_51 = V_10;
 			V_3 = (bool)((((int32_t)L_51) == ((int32_t)((int32_t)13)))? 1 : 0);
 			bool L_52 = V_3;
@@ -6169,11 +6169,11 @@ IL_01b8_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_70 = V_1;
 			NullCheck(L_70);
-			int32_t L_71 = L_70->____charPos_8;
+			int32_t L_71 = L_70->____charPos_11;
 			V_8 = L_71;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_72 = V_1;
 			NullCheck(L_72);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_73 = L_72->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_73 = L_72->____charBuffer_10;
 			int32_t L_74 = V_8;
 			NullCheck(L_73);
 			int32_t L_75 = L_74;
@@ -6189,7 +6189,7 @@ IL_01b8_1:
 			int32_t L_79 = ((int32_t)il2cpp_codegen_add(L_78, 1));
 			V_8 = L_79;
 			NullCheck(L_77);
-			L_77->____charPos_8 = L_79;
+			L_77->____charPos_11 = L_79;
 		}
 
 IL_01dd_1:
@@ -6452,10 +6452,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CReadAsyncInternalU3Ed__66_MoveNext_m3
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_3 = V_1;
 			NullCheck(L_3);
-			int32_t L_4 = L_3->____charPos_8;
+			int32_t L_4 = L_3->____charPos_11;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_5 = V_1;
 			NullCheck(L_5);
-			int32_t L_6 = L_5->____charLen_9;
+			int32_t L_6 = L_5->____charLen_12;
 			V_3 = (bool)((((int32_t)L_4) == ((int32_t)L_6))? 1 : 0);
 			bool L_7 = V_3;
 			if (!L_7)
@@ -6531,12 +6531,12 @@ IL_00a8_1:
 			__this->___U3CreadToUserBufferU3E5__3_6 = (bool)0;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_21 = V_1;
 			NullCheck(L_21);
-			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_22 = L_21->____byteBuffer_6;
+			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_22 = L_21->____byteBuffer_9;
 			__this->___U3CtmpByteBufferU3E5__4_7 = L_22;
 			Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtmpByteBufferU3E5__4_7), (void*)L_22);
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_23 = V_1;
 			NullCheck(L_23);
-			Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_24 = L_23->____stream_3;
+			Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_24 = L_23->____stream_6;
 			__this->___U3CtmpStreamU3E5__5_8 = L_24;
 			Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtmpStreamU3E5__5_8), (void*)L_24);
 			Memory_1_t48D1B1093D181D6F37155EB644659FD7D1DF616E* L_25 = (&__this->___buffer_3);
@@ -6550,10 +6550,10 @@ IL_00e4_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_27 = V_1;
 			NullCheck(L_27);
-			int32_t L_28 = L_27->____charLen_9;
+			int32_t L_28 = L_27->____charLen_12;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_29 = V_1;
 			NullCheck(L_29);
-			int32_t L_30 = L_29->____charPos_8;
+			int32_t L_30 = L_29->____charPos_11;
 			__this->___U3CnU3E5__7_11 = ((int32_t)il2cpp_codegen_subtract(L_28, L_30));
 			int32_t L_31 = __this->___U3CnU3E5__7_11;
 			if (L_31)
@@ -6564,13 +6564,13 @@ IL_00e4_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_32 = V_1;
 			NullCheck(L_32);
-			L_32->____charLen_9 = 0;
+			L_32->____charLen_12 = 0;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_33 = V_1;
 			NullCheck(L_33);
-			L_33->____charPos_8 = 0;
+			L_33->____charPos_11 = 0;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_34 = V_1;
 			NullCheck(L_34);
-			bool L_35 = L_34->____checkPreamble_14;
+			bool L_35 = L_34->____checkPreamble_17;
 			if (L_35)
 			{
 				goto IL_011f_1;
@@ -6579,7 +6579,7 @@ IL_00e4_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_36 = V_1;
 			NullCheck(L_36);
-			L_36->____byteLen_10 = 0;
+			L_36->____byteLen_13 = 0;
 		}
 
 IL_011f_1:
@@ -6587,7 +6587,7 @@ IL_011f_1:
 			int32_t L_37 = __this->___U3CcountU3E5__6_9;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_38 = V_1;
 			NullCheck(L_38);
-			int32_t L_39 = L_38->____maxCharsPerBuffer_12;
+			int32_t L_39 = L_38->____maxCharsPerBuffer_15;
 			__this->___U3CreadToUserBufferU3E5__3_6 = (bool)((((int32_t)((((int32_t)L_37) < ((int32_t)L_39))? 1 : 0)) == ((int32_t)0))? 1 : 0);
 		}
 
@@ -6595,7 +6595,7 @@ IL_0136_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_40 = V_1;
 			NullCheck(L_40);
-			bool L_41 = L_40->____checkPreamble_14;
+			bool L_41 = L_40->____checkPreamble_17;
 			if (!L_41)
 			{
 				goto IL_0294_1;
@@ -6604,7 +6604,7 @@ IL_0136_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_42 = V_1;
 			NullCheck(L_42);
-			int32_t L_43 = L_42->____bytePos_11;
+			int32_t L_43 = L_42->____bytePos_14;
 			V_6 = L_43;
 			Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_44 = __this->___U3CtmpStreamU3E5__5_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_45 = __this->___U3CtmpByteBufferU3E5__4_7;
@@ -6670,7 +6670,7 @@ IL_01d1_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_63 = V_1;
 			NullCheck(L_63);
-			int32_t L_64 = L_63->____byteLen_10;
+			int32_t L_64 = L_63->____byteLen_13;
 			if ((((int32_t)L_64) <= ((int32_t)0)))
 			{
 				goto IL_0274_1;
@@ -6686,11 +6686,11 @@ IL_01d1_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_66 = V_1;
 			NullCheck(L_66);
-			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_67 = L_66->____decoder_5;
+			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_67 = L_66->____decoder_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_68 = __this->___U3CtmpByteBufferU3E5__4_7;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_69 = V_1;
 			NullCheck(L_69);
-			int32_t L_70 = L_69->____byteLen_10;
+			int32_t L_70 = L_69->____byteLen_13;
 			ReadOnlySpan_1_tA850A6C0E88ABBA37646A078ACBC24D6D5FD9B4D L_71;
 			memset((&L_71), 0, sizeof(L_71));
 			ReadOnlySpan_1__ctor_m7B5C2765879EA5E8D1617D834CC465A39540A913_inline((&L_71), L_68, 0, L_70, /*hidden argument*/ReadOnlySpan_1__ctor_m7B5C2765879EA5E8D1617D834CC465A39540A913_RuntimeMethod_var);
@@ -6707,7 +6707,7 @@ IL_01d1_1:
 			__this->___U3CnU3E5__7_11 = L_76;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_77 = V_1;
 			NullCheck(L_77);
-			L_77->____charLen_9 = 0;
+			L_77->____charLen_12 = 0;
 			goto IL_0274_1;
 		}
 
@@ -6715,14 +6715,14 @@ IL_023c_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_78 = V_1;
 			NullCheck(L_78);
-			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_79 = L_78->____decoder_5;
+			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_79 = L_78->____decoder_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_80 = __this->___U3CtmpByteBufferU3E5__4_7;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_81 = V_1;
 			NullCheck(L_81);
-			int32_t L_82 = L_81->____byteLen_10;
+			int32_t L_82 = L_81->____byteLen_13;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_83 = V_1;
 			NullCheck(L_83);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_84 = L_83->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_84 = L_83->____charBuffer_10;
 			NullCheck(L_79);
 			int32_t L_85;
 			L_85 = VirtualFuncInvoker5< int32_t, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB*, int32_t >::Invoke(8 /* System.Int32 System.Text.Decoder::GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32) */, L_79, L_80, 0, L_82, L_84, 0);
@@ -6730,17 +6730,17 @@ IL_023c_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_86 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_87 = V_1;
 			NullCheck(L_87);
-			int32_t L_88 = L_87->____charLen_9;
+			int32_t L_88 = L_87->____charLen_12;
 			int32_t L_89 = __this->___U3CnU3E5__7_11;
 			NullCheck(L_86);
-			L_86->____charLen_9 = ((int32_t)il2cpp_codegen_add(L_88, L_89));
+			L_86->____charLen_12 = ((int32_t)il2cpp_codegen_add(L_88, L_89));
 		}
 
 IL_0274_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_90 = V_1;
 			NullCheck(L_90);
-			L_90->____isBlocked_15 = (bool)1;
+			L_90->____isBlocked_18 = (bool)1;
 			goto IL_0423_1;
 		}
 
@@ -6749,10 +6749,10 @@ IL_0280_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_91 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_92 = V_1;
 			NullCheck(L_92);
-			int32_t L_93 = L_92->____byteLen_10;
+			int32_t L_93 = L_92->____byteLen_13;
 			int32_t L_94 = V_7;
 			NullCheck(L_91);
-			L_91->____byteLen_10 = ((int32_t)il2cpp_codegen_add(L_93, L_94));
+			L_91->____byteLen_13 = ((int32_t)il2cpp_codegen_add(L_93, L_94));
 			goto IL_0334_1;
 		}
 
@@ -6812,10 +6812,10 @@ IL_030f_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_110 = V_1;
 			int32_t L_111 = V_12;
 			NullCheck(L_110);
-			L_110->____byteLen_10 = L_111;
+			L_110->____byteLen_13 = L_111;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_112 = V_1;
 			NullCheck(L_112);
-			int32_t L_113 = L_112->____byteLen_10;
+			int32_t L_113 = L_112->____byteLen_13;
 			if (L_113)
 			{
 				goto IL_0334_1;
@@ -6824,7 +6824,7 @@ IL_030f_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_114 = V_1;
 			NullCheck(L_114);
-			L_114->____isBlocked_15 = (bool)1;
+			L_114->____isBlocked_18 = (bool)1;
 			goto IL_0423_1;
 		}
 
@@ -6833,11 +6833,11 @@ IL_0334_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_115 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_116 = V_1;
 			NullCheck(L_116);
-			int32_t L_117 = L_116->____byteLen_10;
+			int32_t L_117 = L_116->____byteLen_13;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_118 = __this->___U3CtmpByteBufferU3E5__4_7;
 			NullCheck(L_118);
 			NullCheck(L_115);
-			L_115->____isBlocked_15 = (bool)((((int32_t)L_117) < ((int32_t)((int32_t)(((RuntimeArray*)L_118)->max_length))))? 1 : 0);
+			L_115->____isBlocked_18 = (bool)((((int32_t)L_117) < ((int32_t)((int32_t)(((RuntimeArray*)L_118)->max_length))))? 1 : 0);
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_119 = V_1;
 			NullCheck(L_119);
 			bool L_120;
@@ -6850,7 +6850,7 @@ IL_0334_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_121 = V_1;
 			NullCheck(L_121);
-			bool L_122 = L_121->____detectEncoding_13;
+			bool L_122 = L_121->____detectEncoding_16;
 			if (!L_122)
 			{
 				goto IL_0383_1;
@@ -6859,7 +6859,7 @@ IL_0334_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_123 = V_1;
 			NullCheck(L_123);
-			int32_t L_124 = L_123->____byteLen_10;
+			int32_t L_124 = L_123->____byteLen_13;
 			if ((((int32_t)L_124) < ((int32_t)2)))
 			{
 				goto IL_0383_1;
@@ -6872,7 +6872,7 @@ IL_0334_1:
 			int32_t L_126 = __this->___U3CcountU3E5__6_9;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_127 = V_1;
 			NullCheck(L_127);
-			int32_t L_128 = L_127->____maxCharsPerBuffer_12;
+			int32_t L_128 = L_127->____maxCharsPerBuffer_15;
 			__this->___U3CreadToUserBufferU3E5__3_6 = (bool)((((int32_t)((((int32_t)L_126) < ((int32_t)L_128))? 1 : 0)) == ((int32_t)0))? 1 : 0);
 		}
 
@@ -6880,7 +6880,7 @@ IL_0383_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_129 = V_1;
 			NullCheck(L_129);
-			L_129->____charPos_8 = 0;
+			L_129->____charPos_11 = 0;
 			bool L_130 = __this->___U3CreadToUserBufferU3E5__3_6;
 			if (!L_130)
 			{
@@ -6891,11 +6891,11 @@ IL_0383_1:
 			int32_t L_131 = __this->___U3CnU3E5__7_11;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_132 = V_1;
 			NullCheck(L_132);
-			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_133 = L_132->____decoder_5;
+			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_133 = L_132->____decoder_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_134 = __this->___U3CtmpByteBufferU3E5__4_7;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_135 = V_1;
 			NullCheck(L_135);
-			int32_t L_136 = L_135->____byteLen_10;
+			int32_t L_136 = L_135->____byteLen_13;
 			ReadOnlySpan_1_tA850A6C0E88ABBA37646A078ACBC24D6D5FD9B4D L_137;
 			memset((&L_137), 0, sizeof(L_137));
 			ReadOnlySpan_1__ctor_m7B5C2765879EA5E8D1617D834CC465A39540A913_inline((&L_137), L_134, 0, L_136, /*hidden argument*/ReadOnlySpan_1__ctor_m7B5C2765879EA5E8D1617D834CC465A39540A913_RuntimeMethod_var);
@@ -6912,7 +6912,7 @@ IL_0383_1:
 			__this->___U3CnU3E5__7_11 = ((int32_t)il2cpp_codegen_add(L_131, L_142));
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_143 = V_1;
 			NullCheck(L_143);
-			L_143->____charLen_9 = 0;
+			L_143->____charLen_12 = 0;
 			goto IL_0418_1;
 		}
 
@@ -6920,14 +6920,14 @@ IL_03e0_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_144 = V_1;
 			NullCheck(L_144);
-			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_145 = L_144->____decoder_5;
+			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_145 = L_144->____decoder_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_146 = __this->___U3CtmpByteBufferU3E5__4_7;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_147 = V_1;
 			NullCheck(L_147);
-			int32_t L_148 = L_147->____byteLen_10;
+			int32_t L_148 = L_147->____byteLen_13;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_149 = V_1;
 			NullCheck(L_149);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_150 = L_149->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_150 = L_149->____charBuffer_10;
 			NullCheck(L_145);
 			int32_t L_151;
 			L_151 = VirtualFuncInvoker5< int32_t, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB*, int32_t >::Invoke(8 /* System.Int32 System.Text.Decoder::GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32) */, L_145, L_146, 0, L_148, L_150, 0);
@@ -6935,10 +6935,10 @@ IL_03e0_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_152 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_153 = V_1;
 			NullCheck(L_153);
-			int32_t L_154 = L_153->____charLen_9;
+			int32_t L_154 = L_153->____charLen_12;
 			int32_t L_155 = __this->___U3CnU3E5__7_11;
 			NullCheck(L_152);
-			L_152->____charLen_9 = ((int32_t)il2cpp_codegen_add(L_154, L_155));
+			L_152->____charLen_12 = ((int32_t)il2cpp_codegen_add(L_154, L_155));
 		}
 
 IL_0418_1:
@@ -6984,10 +6984,10 @@ IL_0448_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_162 = V_1;
 			NullCheck(L_162);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_163 = L_162->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_163 = L_162->____charBuffer_10;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_164 = V_1;
 			NullCheck(L_164);
-			int32_t L_165 = L_164->____charPos_8;
+			int32_t L_165 = L_164->____charPos_11;
 			int32_t L_166 = __this->___U3CnU3E5__7_11;
 			Span_1_tEDDF15FCF9EC6DEBA0F696BAACDDBAB9D92C252D L_167;
 			memset((&L_167), 0, sizeof(L_167));
@@ -7004,10 +7004,10 @@ IL_0448_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_172 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_173 = V_1;
 			NullCheck(L_173);
-			int32_t L_174 = L_173->____charPos_8;
+			int32_t L_174 = L_173->____charPos_11;
 			int32_t L_175 = __this->___U3CnU3E5__7_11;
 			NullCheck(L_172);
-			L_172->____charPos_8 = ((int32_t)il2cpp_codegen_add(L_174, L_175));
+			L_172->____charPos_11 = ((int32_t)il2cpp_codegen_add(L_174, L_175));
 		}
 
 IL_049d_1:
@@ -7020,7 +7020,7 @@ IL_049d_1:
 			__this->___U3CcountU3E5__6_9 = ((int32_t)il2cpp_codegen_subtract(L_178, L_179));
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_180 = V_1;
 			NullCheck(L_180);
-			bool L_181 = L_180->____isBlocked_15;
+			bool L_181 = L_180->____isBlocked_18;
 			if (L_181)
 			{
 				goto IL_04d7_1;
@@ -7180,23 +7180,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CReadBufferAsyncU3Ed__69_MoveNext_mAE2
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_4 = V_1;
 			NullCheck(L_4);
-			L_4->____charLen_9 = 0;
+			L_4->____charLen_12 = 0;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_5 = V_1;
 			NullCheck(L_5);
-			L_5->____charPos_8 = 0;
+			L_5->____charPos_11 = 0;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_6 = V_1;
 			NullCheck(L_6);
-			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_7 = L_6->____byteBuffer_6;
+			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_7 = L_6->____byteBuffer_9;
 			__this->___U3CtmpByteBufferU3E5__2_3 = L_7;
 			Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtmpByteBufferU3E5__2_3), (void*)L_7);
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_8 = V_1;
 			NullCheck(L_8);
-			Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_9 = L_8->____stream_3;
+			Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_9 = L_8->____stream_6;
 			__this->___U3CtmpStreamU3E5__3_4 = L_9;
 			Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtmpStreamU3E5__3_4), (void*)L_9);
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_10 = V_1;
 			NullCheck(L_10);
-			bool L_11 = L_10->____checkPreamble_14;
+			bool L_11 = L_10->____checkPreamble_17;
 			if (L_11)
 			{
 				goto IL_0050_1;
@@ -7205,14 +7205,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CReadBufferAsyncU3Ed__69_MoveNext_mAE2
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_12 = V_1;
 			NullCheck(L_12);
-			L_12->____byteLen_10 = 0;
+			L_12->____byteLen_13 = 0;
 		}
 
 IL_0050_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_13 = V_1;
 			NullCheck(L_13);
-			bool L_14 = L_13->____checkPreamble_14;
+			bool L_14 = L_13->____checkPreamble_17;
 			if (!L_14)
 			{
 				goto IL_0161_1;
@@ -7221,7 +7221,7 @@ IL_0050_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_15 = V_1;
 			NullCheck(L_15);
-			int32_t L_16 = L_15->____bytePos_11;
+			int32_t L_16 = L_15->____bytePos_14;
 			V_3 = L_16;
 			Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_17 = __this->___U3CtmpStreamU3E5__3_4;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_18 = __this->___U3CtmpByteBufferU3E5__2_3;
@@ -7288,7 +7288,7 @@ IL_00ec_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_36 = V_1;
 			NullCheck(L_36);
-			int32_t L_37 = L_36->____byteLen_10;
+			int32_t L_37 = L_36->____byteLen_13;
 			if ((((int32_t)L_37) <= ((int32_t)0)))
 			{
 				goto IL_0141_1;
@@ -7298,38 +7298,38 @@ IL_00ec_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_38 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_39 = V_1;
 			NullCheck(L_39);
-			int32_t L_40 = L_39->____charLen_9;
+			int32_t L_40 = L_39->____charLen_12;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_41 = V_1;
 			NullCheck(L_41);
-			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_42 = L_41->____decoder_5;
+			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_42 = L_41->____decoder_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_43 = __this->___U3CtmpByteBufferU3E5__2_3;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_44 = V_1;
 			NullCheck(L_44);
-			int32_t L_45 = L_44->____byteLen_10;
+			int32_t L_45 = L_44->____byteLen_13;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_46 = V_1;
 			NullCheck(L_46);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_47 = L_46->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_47 = L_46->____charBuffer_10;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_48 = V_1;
 			NullCheck(L_48);
-			int32_t L_49 = L_48->____charLen_9;
+			int32_t L_49 = L_48->____charLen_12;
 			NullCheck(L_42);
 			int32_t L_50;
 			L_50 = VirtualFuncInvoker5< int32_t, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB*, int32_t >::Invoke(8 /* System.Int32 System.Text.Decoder::GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32) */, L_42, L_43, 0, L_45, L_47, L_49);
 			NullCheck(L_38);
-			L_38->____charLen_9 = ((int32_t)il2cpp_codegen_add(L_40, L_50));
+			L_38->____charLen_12 = ((int32_t)il2cpp_codegen_add(L_40, L_50));
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_51 = V_1;
 			NullCheck(L_51);
-			L_51->____bytePos_11 = 0;
+			L_51->____bytePos_14 = 0;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_52 = V_1;
 			NullCheck(L_52);
-			L_52->____byteLen_10 = 0;
+			L_52->____byteLen_13 = 0;
 		}
 
 IL_0141_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_53 = V_1;
 			NullCheck(L_53);
-			int32_t L_54 = L_53->____charLen_9;
+			int32_t L_54 = L_53->____charLen_12;
 			V_2 = L_54;
 			goto IL_02a6;
 		}
@@ -7339,10 +7339,10 @@ IL_014d_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_55 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_56 = V_1;
 			NullCheck(L_56);
-			int32_t L_57 = L_56->____byteLen_10;
+			int32_t L_57 = L_56->____byteLen_13;
 			int32_t L_58 = V_4;
 			NullCheck(L_55);
-			L_55->____byteLen_10 = ((int32_t)il2cpp_codegen_add(L_57, L_58));
+			L_55->____byteLen_13 = ((int32_t)il2cpp_codegen_add(L_57, L_58));
 			goto IL_0205_1;
 		}
 
@@ -7403,10 +7403,10 @@ IL_01e0_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_74 = V_1;
 			int32_t L_75 = V_9;
 			NullCheck(L_74);
-			L_74->____byteLen_10 = L_75;
+			L_74->____byteLen_13 = L_75;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_76 = V_1;
 			NullCheck(L_76);
-			int32_t L_77 = L_76->____byteLen_10;
+			int32_t L_77 = L_76->____byteLen_13;
 			if (L_77)
 			{
 				goto IL_0205_1;
@@ -7415,7 +7415,7 @@ IL_01e0_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_78 = V_1;
 			NullCheck(L_78);
-			int32_t L_79 = L_78->____charLen_9;
+			int32_t L_79 = L_78->____charLen_12;
 			V_2 = L_79;
 			goto IL_02a6;
 		}
@@ -7425,11 +7425,11 @@ IL_0205_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_80 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_81 = V_1;
 			NullCheck(L_81);
-			int32_t L_82 = L_81->____byteLen_10;
+			int32_t L_82 = L_81->____byteLen_13;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_83 = __this->___U3CtmpByteBufferU3E5__2_3;
 			NullCheck(L_83);
 			NullCheck(L_80);
-			L_80->____isBlocked_15 = (bool)((((int32_t)L_82) < ((int32_t)((int32_t)(((RuntimeArray*)L_83)->max_length))))? 1 : 0);
+			L_80->____isBlocked_18 = (bool)((((int32_t)L_82) < ((int32_t)((int32_t)(((RuntimeArray*)L_83)->max_length))))? 1 : 0);
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_84 = V_1;
 			NullCheck(L_84);
 			bool L_85;
@@ -7442,7 +7442,7 @@ IL_0205_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_86 = V_1;
 			NullCheck(L_86);
-			bool L_87 = L_86->____detectEncoding_13;
+			bool L_87 = L_86->____detectEncoding_16;
 			if (!L_87)
 			{
 				goto IL_023a_1;
@@ -7451,7 +7451,7 @@ IL_0205_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_88 = V_1;
 			NullCheck(L_88);
-			int32_t L_89 = L_88->____byteLen_10;
+			int32_t L_89 = L_88->____byteLen_13;
 			if ((((int32_t)L_89) < ((int32_t)2)))
 			{
 				goto IL_023a_1;
@@ -7468,32 +7468,32 @@ IL_023a_1:
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_91 = V_1;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_92 = V_1;
 			NullCheck(L_92);
-			int32_t L_93 = L_92->____charLen_9;
+			int32_t L_93 = L_92->____charLen_12;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_94 = V_1;
 			NullCheck(L_94);
-			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_95 = L_94->____decoder_5;
+			Decoder_tE16E789E38B25DD304004FC630EA8B21000ECBBC* L_95 = L_94->____decoder_8;
 			ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_96 = __this->___U3CtmpByteBufferU3E5__2_3;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_97 = V_1;
 			NullCheck(L_97);
-			int32_t L_98 = L_97->____byteLen_10;
+			int32_t L_98 = L_97->____byteLen_13;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_99 = V_1;
 			NullCheck(L_99);
-			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_100 = L_99->____charBuffer_7;
+			CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_100 = L_99->____charBuffer_10;
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_101 = V_1;
 			NullCheck(L_101);
-			int32_t L_102 = L_101->____charLen_9;
+			int32_t L_102 = L_101->____charLen_12;
 			NullCheck(L_95);
 			int32_t L_103;
 			L_103 = VirtualFuncInvoker5< int32_t, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB*, int32_t >::Invoke(8 /* System.Int32 System.Text.Decoder::GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32) */, L_95, L_96, 0, L_98, L_100, L_102);
 			NullCheck(L_91);
-			L_91->____charLen_9 = ((int32_t)il2cpp_codegen_add(L_93, L_103));
+			L_91->____charLen_12 = ((int32_t)il2cpp_codegen_add(L_93, L_103));
 		}
 
 IL_026b_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_104 = V_1;
 			NullCheck(L_104);
-			int32_t L_105 = L_104->____charLen_9;
+			int32_t L_105 = L_104->____charLen_12;
 			if (!L_105)
 			{
 				goto IL_0050_1;
@@ -7502,7 +7502,7 @@ IL_026b_1:
 		{
 			StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* L_106 = V_1;
 			NullCheck(L_106);
-			int32_t L_107 = L_106->____charLen_9;
+			int32_t L_107 = L_106->____charLen_12;
 			V_2 = L_107;
 			goto IL_02a6;
 		}

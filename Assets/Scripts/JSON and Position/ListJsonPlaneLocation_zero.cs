@@ -18,7 +18,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     [SerializeField] public GameObject flightButtonsTemplate;
     [SerializeField] public GameObject flightButtonsParent;
 
-    [SerializeField] public float radiusAdjustment = 0.605f; // globe ball radius (unity units 1m)
+    [SerializeField] public float radiusAdjustment = 0.605f; // globe ball radius
     [SerializeField] public float airportLatitude = 38.94846f;
     [SerializeField] public float airpotLongitude = -77.44057f;
     
@@ -28,6 +28,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     [SerializeField] public float positionScale = 0.1f;
     [SerializeField] public float indexAdjustment=10f;
     [SerializeField] private List<GameObject> flightButtons;
+
     private List<string> flightNames;
     private List<GameObject> planes;
     private List<string> flightNamesPrevious;
@@ -71,15 +72,13 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         requestNumbers = new List<int>();
         requestFlightResponses = new List<flights>();
 
-        radius = radiusAdjustment * GlobalSystem.transform.localScale.x;
-
         ReadJson();
 
     }
 
     public void Update()
     {
-        radius = radiusAdjustment * GlobalSystem.transform.localScale.x;
+
         // loop through all requests. use interval to set speed of calling PlaneLocation()
         for (int i = 0; i < requestFlightResponses.Count; i++)
         {
@@ -113,6 +112,9 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
     private void GetXYZPositions()
     {
+
+        radius = radiusAdjustment * GlobalSystem.transform.root.localScale.x;
+        Debug.Log("radius adjustments: " + radius + " = " + radiusAdjustment + " * " + GlobalSystem.transform.root.localScale.x);
 
         newRadius = (float)((float)(2.093e7 + altitude) * radius / 2.093e7);
 
@@ -355,9 +357,14 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
     public void ReadJson()
     {
-        //StreamReader sr = new StreamReader("C:/Users/raisa/Documents/GitHub/ATC_test_v2 - Oculus/Assets/Resources/AirLab_data.json");
-        //StreamReader sr = new StreamReader("/storage/emulated/0/Android/data/com.DefaultCompany.ATC_test_v2/files/AirLab_data_test.json");
-        streamReader = new StreamReader("C:/Users/raisa/AppData/LocalLow/DefaultCompany/ATC_test_v2/AirLab_data_test.json");
+        // For Windows platform as is.
+        // For Oculus, json file should be in the following folder:
+        // "This PC\Quest Pro\Internal shared storage\Android\data\com.DefaultCompany.ATC_test_v2\files" 
+        string filePath = Application.persistentDataPath + "/AirLab_data_test.json";
+
+
+        streamReader = new StreamReader(filePath);       
+
         streamReader.BaseStream.Position = 0;
         jsonString = streamReader.ReadToEnd();
         streamReader.Close();

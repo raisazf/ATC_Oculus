@@ -31,7 +31,9 @@ public class FlightStatus : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-
+        previousPlane = gameObject.name;
+        Debug.Log("Aircraft " + gameObject.name + " isSelected " + isSelected + " Previous plane " + previousPlane);
+        
         if (other.CompareTag("Player") && !isSelected && gameObject.name != "PlaneHolderInside")
         {
             isSelected = true;

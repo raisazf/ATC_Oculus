@@ -82,6 +82,8 @@ struct VirtualFuncInvoker5
 struct Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87;
 // System.Buffers.ArrayBufferWriter`1<System.Byte>
 struct ArrayBufferWriter_1_t1BC1DECDD156A1043C7214DF1E3DA071F93894A3;
+// System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>
+struct CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2;
 // System.Text.Json.Serialization.Converters.CastingConverter`2<System.Decimal,System.Boolean>
 struct CastingConverter_2_t2CE8FF4A1EBF1D86BD93FB192441FF3FA13ED7ED;
 // System.Text.Json.Serialization.Converters.CastingConverter`2<System.Decimal,System.Byte>
@@ -170,8 +172,6 @@ struct CastingConverter_2_t6ECD57EEB1E04B3A0D72E6DBC70961EF8F6F852E;
 struct CastingConverter_2_t0C054350A6CD7A1A53E59EBE1C739EBD70A63999;
 // System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Decimal>
 struct CastingConverter_2_tCEFD7BE909F4B3F1CBEE1E68522062944554043D;
-// System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>
-struct CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16;
 // System.Text.Json.Serialization.ConfigurationList`1<System.Text.Json.Serialization.JsonConverter>
 struct ConfigurationList_1_t10971E34AB27DD4AAC763AA11CA6D2ECD261B0FF;
 // System.Buffers.IBufferWriter`1<System.Byte>
@@ -1098,6 +1098,13 @@ struct ByReference_1_t9C85BCCAAF8C525B6C06B07E922D8D217BE8D6FC
 	intptr_t ____value_0;
 };
 
+// System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>
+struct CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2  : public JsonConverter_1_t04904770CF218F2075F200194327943875E976F9
+{
+	// System.Text.Json.Serialization.JsonConverter`1<TSource> System.Text.Json.Serialization.Converters.CastingConverter`2::_sourceConverter
+	JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* ____sourceConverter_11;
+};
+
 // System.Text.Json.Serialization.Converters.CastingConverter`2<System.Decimal,System.Boolean>
 struct CastingConverter_2_t2CE8FF4A1EBF1D86BD93FB192441FF3FA13ED7ED  : public JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747
 {
@@ -1404,13 +1411,6 @@ struct CastingConverter_2_tCEFD7BE909F4B3F1CBEE1E68522062944554043D  : public Js
 {
 	// System.Text.Json.Serialization.JsonConverter`1<TSource> System.Text.Json.Serialization.Converters.CastingConverter`2::_sourceConverter
 	JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747* ____sourceConverter_11;
-};
-
-// System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>
-struct CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16  : public JsonConverter_1_t359D60499CA1D78CCEF63B2DF294A5321F2E7E74
-{
-	// System.Text.Json.Serialization.JsonConverter`1<TSource> System.Text.Json.Serialization.Converters.CastingConverter`2::_sourceConverter
-	JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* ____sourceConverter_11;
 };
 
 // System.DateTimeOffset
@@ -1777,6 +1777,16 @@ struct Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8_marshaled_com
 #endif
 
 
+// System.Void System.Text.Json.Serialization.JsonConverter`1<System.DateTimeOffset>::.ctor(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonConverter_1__ctor_mA674A91BE2398F82668CF1546B18796FA8B39BB7_gshared (JsonConverter_1_t04904770CF218F2075F200194327943875E976F9* __this, bool ___initialize0, const RuntimeMethod* method) ;
+// System.Void System.Text.Json.Serialization.JsonConverter`1<System.DateTimeOffset>::Initialize()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonConverter_1_Initialize_mB3B6470692773D2AAAF6B499AC317D35130E9220_gshared (JsonConverter_1_t04904770CF218F2075F200194327943875E976F9* __this, const RuntimeMethod* method) ;
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::CastOnRead(TSource)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1_gshared (uint64_t ___source0, const RuntimeMethod* method) ;
+// TSource System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::CastOnWrite(T)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint64_t CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1_gshared (DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___source0, const RuntimeMethod* method) ;
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::<CastOnRead>g__HandleFailure|24_0(TSource)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m421285EA16CF78A250212673C5B2A5F5580D03AB_gshared (uint64_t ___source0, const RuntimeMethod* method) ;
 // System.Void System.Text.Json.Serialization.JsonConverter`1<System.Decimal>::.ctor(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonConverter_1__ctor_m83A73D3362DD981B0C8C8100E38D45AD67020ACE_gshared (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747* __this, bool ___initialize0, const RuntimeMethod* method) ;
 // System.Void System.Text.Json.Serialization.JsonConverter`1<System.Decimal>::Initialize()
@@ -2053,22 +2063,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_CastOnRead_mB1372D2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Decimal_tDA6C877282B2D789CF97C0949661CC11D643969F CastingConverter_2_CastOnWrite_mE6B73EC7B5D3ACF9F224FB466767D8A157689E8A_gshared (Guid_t ___source0, const RuntimeMethod* method) ;
 // System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Decimal>::<CastOnRead>g__HandleFailure|24_0(TSource)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m4193D18BDF44875F1BB048B4ABEA300B8FB399A8_gshared (Decimal_tDA6C877282B2D789CF97C0949661CC11D643969F ___source0, const RuntimeMethod* method) ;
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::CastOnRead(TSource)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0_gshared (double ___source0, const RuntimeMethod* method) ;
-// TSource System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::CastOnWrite(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110_gshared (Guid_t ___source0, const RuntimeMethod* method) ;
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::<CastOnRead>g__HandleFailure|24_0(TSource)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_mA89D6495D9BC0418E6DCFC9D6899CD8AC7D81A16_gshared (double ___source0, const RuntimeMethod* method) ;
 
-// System.Void System.Text.Json.Serialization.JsonConverter`1<System.Decimal>::.ctor(System.Boolean)
-inline void JsonConverter_1__ctor_m83A73D3362DD981B0C8C8100E38D45AD67020ACE (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747* __this, bool ___initialize0, const RuntimeMethod* method)
+// System.Void System.Text.Json.Serialization.JsonConverter`1<System.DateTimeOffset>::.ctor(System.Boolean)
+inline void JsonConverter_1__ctor_mA674A91BE2398F82668CF1546B18796FA8B39BB7 (JsonConverter_1_t04904770CF218F2075F200194327943875E976F9* __this, bool ___initialize0, const RuntimeMethod* method)
 {
-	((  void (*) (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747*, bool, const RuntimeMethod*))JsonConverter_1__ctor_m83A73D3362DD981B0C8C8100E38D45AD67020ACE_gshared)(__this, ___initialize0, method);
+	((  void (*) (JsonConverter_1_t04904770CF218F2075F200194327943875E976F9*, bool, const RuntimeMethod*))JsonConverter_1__ctor_mA674A91BE2398F82668CF1546B18796FA8B39BB7_gshared)(__this, ___initialize0, method);
 }
-// System.Void System.Text.Json.Serialization.JsonConverter`1<System.Decimal>::Initialize()
-inline void JsonConverter_1_Initialize_mD02F939373DD539CA415FB6FCC4A054FC4E5A16B (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747* __this, const RuntimeMethod* method)
+// System.Void System.Text.Json.Serialization.JsonConverter`1<System.DateTimeOffset>::Initialize()
+inline void JsonConverter_1_Initialize_mB3B6470692773D2AAAF6B499AC317D35130E9220 (JsonConverter_1_t04904770CF218F2075F200194327943875E976F9* __this, const RuntimeMethod* method)
 {
-	((  void (*) (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747*, const RuntimeMethod*))JsonConverter_1_Initialize_mD02F939373DD539CA415FB6FCC4A054FC4E5A16B_gshared)(__this, method);
+	((  void (*) (JsonConverter_1_t04904770CF218F2075F200194327943875E976F9*, const RuntimeMethod*))JsonConverter_1_Initialize_mB3B6470692773D2AAAF6B499AC317D35130E9220_gshared)(__this, method);
 }
 // System.Boolean System.Text.Json.Serialization.JsonConverter::get_IsInternalConverter()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool JsonConverter_get_IsInternalConverter_m3F6D0C0722D8FD57533189C2645030FB07A96AEE_inline (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8* __this, const RuntimeMethod* method) ;
@@ -2086,6 +2090,39 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JsonConverter_set_CanUseDire
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool JsonConverter_get_CanBePolymorphic_m70362671690C01E809BC9121656CF387E1BABF78_inline (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8* __this, const RuntimeMethod* method) ;
 // System.Void System.Text.Json.Serialization.JsonConverter::set_CanBePolymorphic(System.Boolean)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JsonConverter_set_CanBePolymorphic_m64C5B8CEE959D5087C91F323CB33AA690D78B840_inline (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8* __this, bool ___value0, const RuntimeMethod* method) ;
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::CastOnRead(TSource)
+inline DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1 (uint64_t ___source0, const RuntimeMethod* method)
+{
+	return ((  DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 (*) (uint64_t, const RuntimeMethod*))CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1_gshared)(___source0, method);
+}
+// TSource System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::CastOnWrite(T)
+inline uint64_t CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1 (DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___source0, const RuntimeMethod* method)
+{
+	return ((  uint64_t (*) (DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4, const RuntimeMethod*))CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1_gshared)(___source0, method);
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::<CastOnRead>g__HandleFailure|24_0(TSource)
+inline void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m421285EA16CF78A250212673C5B2A5F5580D03AB (uint64_t ___source0, const RuntimeMethod* method)
+{
+	((  void (*) (uint64_t, const RuntimeMethod*))CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m421285EA16CF78A250212673C5B2A5F5580D03AB_gshared)(___source0, method);
+}
+// System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57 (RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B ___handle0, const RuntimeMethod* method) ;
+// System.Void System.Text.Json.ThrowHelper::ThrowJsonException_DeserializeUnableToConvertValue(System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowJsonException_DeserializeUnableToConvertValue_m45C862293B0F080C12A4EECB3084FBF0B8CDD83D (Type_t* ___propertyType0, const RuntimeMethod* method) ;
+// System.Void System.Text.Json.ThrowHelper::ThrowInvalidOperationException_DeserializeUnableToAssignNull(System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowInvalidOperationException_DeserializeUnableToAssignNull_mEADD0C71C1896AB70526F02F16CCA9DF430A427B (Type_t* ___declaredType0, const RuntimeMethod* method) ;
+// System.Void System.Text.Json.ThrowHelper::ThrowInvalidCastException_DeserializeUnableToAssignValue(System.Type,System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowInvalidCastException_DeserializeUnableToAssignValue_mEDC3F06B4CE394CA1F7FDC3FF2E9902B02173DC5 (Type_t* ___typeOfValue0, Type_t* ___declaredType1, const RuntimeMethod* method) ;
+// System.Void System.Text.Json.Serialization.JsonConverter`1<System.Decimal>::.ctor(System.Boolean)
+inline void JsonConverter_1__ctor_m83A73D3362DD981B0C8C8100E38D45AD67020ACE (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747* __this, bool ___initialize0, const RuntimeMethod* method)
+{
+	((  void (*) (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747*, bool, const RuntimeMethod*))JsonConverter_1__ctor_m83A73D3362DD981B0C8C8100E38D45AD67020ACE_gshared)(__this, ___initialize0, method);
+}
+// System.Void System.Text.Json.Serialization.JsonConverter`1<System.Decimal>::Initialize()
+inline void JsonConverter_1_Initialize_mD02F939373DD539CA415FB6FCC4A054FC4E5A16B (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747* __this, const RuntimeMethod* method)
+{
+	((  void (*) (JsonConverter_1_t0A22804A19955A32397A3ED1E652EDFCAD0FC747*, const RuntimeMethod*))JsonConverter_1_Initialize_mD02F939373DD539CA415FB6FCC4A054FC4E5A16B_gshared)(__this, method);
+}
 // T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Decimal,System.Boolean>::CastOnRead(TSource)
 inline Decimal_tDA6C877282B2D789CF97C0949661CC11D643969F CastingConverter_2_CastOnRead_m6475F89D3DB2796B9CA0F4AB8400ED225B3BF657 (bool ___source0, const RuntimeMethod* method)
 {
@@ -2101,14 +2138,6 @@ inline void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m1C30DD80
 {
 	((  void (*) (bool, const RuntimeMethod*))CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m1C30DD80908BBC8BCDA15193587645B848770027_gshared)(___source0, method);
 }
-// System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57 (RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B ___handle0, const RuntimeMethod* method) ;
-// System.Void System.Text.Json.ThrowHelper::ThrowJsonException_DeserializeUnableToConvertValue(System.Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowJsonException_DeserializeUnableToConvertValue_m45C862293B0F080C12A4EECB3084FBF0B8CDD83D (Type_t* ___propertyType0, const RuntimeMethod* method) ;
-// System.Void System.Text.Json.ThrowHelper::ThrowInvalidOperationException_DeserializeUnableToAssignNull(System.Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowInvalidOperationException_DeserializeUnableToAssignNull_mEADD0C71C1896AB70526F02F16CCA9DF430A427B (Type_t* ___declaredType0, const RuntimeMethod* method) ;
-// System.Void System.Text.Json.ThrowHelper::ThrowInvalidCastException_DeserializeUnableToAssignValue(System.Type,System.Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowInvalidCastException_DeserializeUnableToAssignValue_mEDC3F06B4CE394CA1F7FDC3FF2E9902B02173DC5 (Type_t* ___typeOfValue0, Type_t* ___declaredType1, const RuntimeMethod* method) ;
 // T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Decimal,System.Byte>::CastOnRead(TSource)
 inline Decimal_tDA6C877282B2D789CF97C0949661CC11D643969F CastingConverter_2_CastOnRead_m21373654D8064E8D3AD42CD6F79B8894ABE19D40 (uint8_t ___source0, const RuntimeMethod* method)
 {
@@ -2774,21 +2803,409 @@ inline void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m4193D18B
 {
 	((  void (*) (Decimal_tDA6C877282B2D789CF97C0949661CC11D643969F, const RuntimeMethod*))CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m4193D18BDF44875F1BB048B4ABEA300B8FB399A8_gshared)(___source0, method);
 }
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::CastOnRead(TSource)
-inline Guid_t CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0 (double ___source0, const RuntimeMethod* method)
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Type System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::get_KeyType()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* CastingConverter_2_get_KeyType_mF76A6B02FD19D15DCF8164D3AD501CC79BF7481C_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, const RuntimeMethod* method) 
 {
-	return ((  Guid_t (*) (double, const RuntimeMethod*))CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0_gshared)(___source0, method);
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		Type_t* L_1;
+		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(13 /* System.Type System.Text.Json.Serialization.JsonConverter::get_KeyType() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		return L_1;
+	}
 }
-// TSource System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::CastOnWrite(T)
-inline double CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110 (Guid_t ___source0, const RuntimeMethod* method)
+// System.Type System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::get_ElementType()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* CastingConverter_2_get_ElementType_mE067EEB30A32771C52E9C676BF6ECBAC5049BC0A_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, const RuntimeMethod* method) 
 {
-	return ((  double (*) (Guid_t, const RuntimeMethod*))CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110_gshared)(___source0, method);
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		Type_t* L_1;
+		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(12 /* System.Type System.Text.Json.Serialization.JsonConverter::get_ElementType() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		return L_1;
+	}
 }
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::<CastOnRead>g__HandleFailure|24_0(TSource)
-inline void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_mA89D6495D9BC0418E6DCFC9D6899CD8AC7D81A16 (double ___source0, const RuntimeMethod* method)
+// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::get_HandleNull()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_get_HandleNull_mD209002B0BF750ADEB931CA4A282D0B6336F6540_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, const RuntimeMethod* method) 
 {
-	((  void (*) (double, const RuntimeMethod*))CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_mA89D6495D9BC0418E6DCFC9D6899CD8AC7D81A16_gshared)(___source0, method);
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		NullCheck(L_0);
+		bool L_1;
+		L_1 = VirtualFuncInvoker0< bool >::Invoke(25 /* System.Boolean System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::get_HandleNull() */, L_0);
+		return L_1;
+	}
 }
+// System.Text.Json.ConverterStrategy System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::get_ConverterStrategy()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t CastingConverter_2_get_ConverterStrategy_m6C8BDD358AA2F339BDB998299190DC249B1BDCF1_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		uint8_t L_1;
+		L_1 = VirtualFuncInvoker0< uint8_t >::Invoke(5 /* System.Text.Json.ConverterStrategy System.Text.Json.Serialization.JsonConverter::get_ConverterStrategy() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		return L_1;
+	}
+}
+// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::get_SupportsCreateObjectDelegate()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_get_SupportsCreateObjectDelegate_m91379490BCED74953C3F43DFD95BBBFA2E254EED_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		bool L_1;
+		L_1 = VirtualFuncInvoker0< bool >::Invoke(6 /* System.Boolean System.Text.Json.Serialization.JsonConverter::get_SupportsCreateObjectDelegate() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
+		return L_1;
+	}
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::.ctor(System.Text.Json.Serialization.JsonConverter`1<TSource>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2__ctor_mEC4F63B0636EC3DC9B622B7264859168E311FE6C_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* ___sourceConverter0, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1__ctor_mA674A91BE2398F82668CF1546B18796FA8B39BB7((JsonConverter_1_t04904770CF218F2075F200194327943875E976F9*)__this, (bool)0, il2cpp_rgctx_method(method->klass->rgctx_data, 3));
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = ___sourceConverter0;
+		__this->____sourceConverter_11 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->____sourceConverter_11), (void*)L_0);
+		NullCheck((JsonConverter_1_t04904770CF218F2075F200194327943875E976F9*)__this);
+		JsonConverter_1_Initialize_mB3B6470692773D2AAAF6B499AC317D35130E9220((JsonConverter_1_t04904770CF218F2075F200194327943875E976F9*)__this, il2cpp_rgctx_method(method->klass->rgctx_data, 5));
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_1 = ___sourceConverter0;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_1);
+		bool L_2;
+		L_2 = JsonConverter_get_IsInternalConverter_m3F6D0C0722D8FD57533189C2645030FB07A96AEE_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_1, NULL);
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
+		JsonConverter_set_IsInternalConverter_mB054A28BB915D42B82F816CA0E11C9CD57EB0000_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_2, NULL);
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_3 = ___sourceConverter0;
+		NullCheck(L_3);
+		bool L_4 = (bool)((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_3)->___IsInternalConverterForNumberType_5;
+		((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this)->___IsInternalConverterForNumberType_5 = L_4;
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_5 = ___sourceConverter0;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_5);
+		bool L_6;
+		L_6 = JsonConverter_get_RequiresReadAhead_m0AEDD274568F1B19A52DF1A6EF7EEC2EF17D0CB6_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_5, NULL);
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
+		JsonConverter_set_RequiresReadAhead_m5582B7B641025B0BAA55F81ADCE97E36A9DBDF2C_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_6, NULL);
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_7 = ___sourceConverter0;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_7);
+		bool L_8;
+		L_8 = JsonConverter_get_CanUseDirectReadOrWrite_mE1D5C56BEAC0A084D137B109347864E236355287_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_7, NULL);
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
+		JsonConverter_set_CanUseDirectReadOrWrite_m0E51E0526E0BD47E24A839266D241496EC091261_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_8, NULL);
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_9 = ___sourceConverter0;
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_9);
+		bool L_10;
+		L_10 = JsonConverter_get_CanBePolymorphic_m70362671690C01E809BC9121656CF387E1BABF78_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_9, NULL);
+		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
+		JsonConverter_set_CanBePolymorphic_m64C5B8CEE959D5087C91F323CB33AA690D78B840_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_10, NULL);
+		return;
+	}
+}
+// System.Text.Json.Serialization.JsonConverter System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::get_SourceConverterForCastingConverter()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8* CastingConverter_2_get_SourceConverterForCastingConverter_m6BDFB7E1C1F92164363CD1CCC69104DD9B324506_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		return (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0;
+	}
+}
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_Read_m34FD005948EF72B3B58CF47FF39E2E173673D273_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
+		Type_t* L_2 = ___typeToConvert1;
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
+		NullCheck(L_0);
+		uint64_t L_4;
+		L_4 = VirtualFuncInvoker3< uint64_t, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(28 /* T System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_5;
+		L_5 = CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
+		return L_5;
+	}
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::Write(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_Write_m21FBDDA9A9F9F8AA732F217828E9401DDE76368A_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_2 = ___value1;
+		uint64_t L_3;
+		L_3 = CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
+		NullCheck(L_0);
+		VirtualActionInvoker3< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, uint64_t, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(29 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::Write(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_3, L_4);
+		return;
+	}
+}
+// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::OnTryRead(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions,System.Text.Json.ReadStack&,T&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_OnTryRead_mB8FC5E05404F2EFF44DFA7F318FAE72471997225_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9* ___state3, DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4* ___value4, const RuntimeMethod* method) 
+{
+	bool V_0 = false;
+	uint64_t V_1 = 0;
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
+		Type_t* L_2 = ___typeToConvert1;
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
+		ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9* L_4 = ___state3;
+		NullCheck(L_0);
+		bool L_5;
+		L_5 = VirtualFuncInvoker5< bool, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD*, ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9*, uint64_t* >::Invoke(27 /* System.Boolean System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::OnTryRead(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions,System.Text.Json.ReadStack&,T&) */, L_0, L_1, L_2, L_3, L_4, (&V_1));
+		V_0 = L_5;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4* L_6 = ___value4;
+		uint64_t L_7 = V_1;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_8;
+		L_8 = CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1(L_7, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
+		*(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4*)L_6 = L_8;
+		bool L_9 = V_0;
+		return L_9;
+	}
+}
+// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::OnTryWrite(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Text.Json.WriteStack&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_OnTryWrite_m4B3553436B9F6EA026646ED27ACFE184A4E65C72_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, WriteStack_t1C9D84FF0610BA9C5DD5BF22A71049258F0E82C1* ___state3, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_2 = ___value1;
+		uint64_t L_3;
+		L_3 = CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
+		WriteStack_t1C9D84FF0610BA9C5DD5BF22A71049258F0E82C1* L_5 = ___state3;
+		NullCheck(L_0);
+		bool L_6;
+		L_6 = VirtualFuncInvoker4< bool, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, uint64_t, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD*, WriteStack_t1C9D84FF0610BA9C5DD5BF22A71049258F0E82C1* >::Invoke(26 /* System.Boolean System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::OnTryWrite(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Text.Json.WriteStack&) */, L_0, L_1, L_3, L_4, L_5);
+		return L_6;
+	}
+}
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::ReadAsPropertyName(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_ReadAsPropertyName_mA24215ED0EF7D4623E5C31014A0106A86D0E9B39_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
+		Type_t* L_2 = ___typeToConvert1;
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
+		NullCheck(L_0);
+		uint64_t L_4;
+		L_4 = VirtualFuncInvoker3< uint64_t, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(30 /* T System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::ReadAsPropertyName(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_5;
+		L_5 = CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
+		return L_5;
+	}
+}
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::ReadAsPropertyNameCore(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_ReadAsPropertyNameCore_mC89B239B4396C9B5629FAEC4C8D8E0D3F6908FC5_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
+		Type_t* L_2 = ___typeToConvert1;
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
+		NullCheck(L_0);
+		uint64_t L_4;
+		L_4 = VirtualFuncInvoker3< uint64_t, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(31 /* T System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::ReadAsPropertyNameCore(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_5;
+		L_5 = CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
+		return L_5;
+	}
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_WriteAsPropertyName_mAEB09734E15217A71A520EC6C00E005B1863E9CE_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_2 = ___value1;
+		uint64_t L_3;
+		L_3 = CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
+		NullCheck(L_0);
+		VirtualActionInvoker3< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, uint64_t, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(32 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_3, L_4);
+		return;
+	}
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::WriteAsPropertyNameCore(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_WriteAsPropertyNameCore_mB60198E7C3C2BA97C1A60A8E1C4944DC2D99F186_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, bool ___isWritingExtensionDataProperty3, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_2 = ___value1;
+		uint64_t L_3;
+		L_3 = CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
+		bool L_5 = ___isWritingExtensionDataProperty3;
+		NullCheck(L_0);
+		VirtualActionInvoker4< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, uint64_t, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD*, bool >::Invoke(33 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::WriteAsPropertyNameCore(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Boolean) */, L_0, L_1, L_3, L_4, L_5);
+		return;
+	}
+}
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::ReadNumberWithCustomHandling(System.Text.Json.Utf8JsonReader&,System.Text.Json.Serialization.JsonNumberHandling,System.Text.Json.JsonSerializerOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_ReadNumberWithCustomHandling_m91E0F690B2A46306F73AF10B834F8C702373C504_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, int32_t ___handling1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
+		int32_t L_2 = ___handling1;
+		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
+		NullCheck(L_0);
+		uint64_t L_4;
+		L_4 = VirtualFuncInvoker3< uint64_t, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, int32_t, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(34 /* T System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::ReadNumberWithCustomHandling(System.Text.Json.Utf8JsonReader&,System.Text.Json.Serialization.JsonNumberHandling,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_5;
+		L_5 = CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
+		return L_5;
+	}
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::WriteNumberWithCustomHandling(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.Serialization.JsonNumberHandling)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_WriteNumberWithCustomHandling_m12BF42239D54A66BDB4FBB92A90278D95EEF0246_gshared (CastingConverter_2_tA200772C684C1111F333E033E3B1A556B8AFD2B2* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___value1, int32_t ___handling2, const RuntimeMethod* method) 
+{
+	{
+		JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346* L_0 = (JsonConverter_1_t90E6A8B266D3FD96A6257E6C3E842E77D4C7D346*)__this->____sourceConverter_11;
+		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_2 = ___value1;
+		uint64_t L_3;
+		L_3 = CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
+		int32_t L_4 = ___handling2;
+		NullCheck(L_0);
+		VirtualActionInvoker3< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, uint64_t, int32_t >::Invoke(35 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.UInt64>::WriteNumberWithCustomHandling(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.Serialization.JsonNumberHandling) */, L_0, L_1, L_3, L_4);
+		return;
+	}
+}
+// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::CastOnRead(TSource)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 CastingConverter_2_CastOnRead_m474FE3A7427087E202C581E2D188934F1554D4F1_gshared (uint64_t ___source0, const RuntimeMethod* method) 
+{
+	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	uint64_t V_2 = 0;
+	{
+		il2cpp_codegen_initobj((&V_1), sizeof(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4));
+		goto IL_0032;
+	}
+	{
+		il2cpp_codegen_initobj((&V_2), sizeof(uint64_t));
+		goto IL_0032;
+	}
+	{
+		goto IL_0032;
+	}
+	{
+		il2cpp_codegen_initobj((&V_1), sizeof(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4));
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_3 = V_1;
+		return L_3;
+	}
+
+IL_0032:
+	{
+		uint64_t L_4 = ___source0;
+		uint64_t L_5 = L_4;
+		RuntimeObject* L_6 = Box(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 7), &L_5);
+		if (!((RuntimeObject*)IsInst((RuntimeObject*)L_6, il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10))))
+		{
+			goto IL_0052;
+		}
+	}
+	{
+		uint64_t L_7 = ___source0;
+		uint64_t L_8 = L_7;
+		RuntimeObject* L_9 = Box(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 7), &L_8);
+		V_0 = ((*(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4*)((DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4*)(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4*)UnBox(((RuntimeObject*)IsInst((RuntimeObject*)L_9, il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10))), il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10)))));
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_10 = V_0;
+		return L_10;
+	}
+
+IL_0052:
+	{
+		uint64_t L_11 = ___source0;
+		CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m421285EA16CF78A250212673C5B2A5F5580D03AB(L_11, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 23));
+		il2cpp_codegen_initobj((&V_1), sizeof(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4));
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_12 = V_1;
+		return L_12;
+	}
+}
+// TSource System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::CastOnWrite(T)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint64_t CastingConverter_2_CastOnWrite_m14791E58D5304293C2C8404FFA1AF393A3CC17A1_gshared (DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___source0, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	uint64_t V_0 = 0;
+	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	{
+		il2cpp_codegen_initobj((&V_0), sizeof(uint64_t));
+	}
+	{
+		il2cpp_codegen_initobj((&V_1), sizeof(DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4));
+		goto IL_0037;
+	}
+	{
+		goto IL_0037;
+	}
+	{
+		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_3 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 24)) };
+		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
+		Type_t* L_4;
+		L_4 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_3, NULL);
+		ThrowHelper_ThrowJsonException_DeserializeUnableToConvertValue_m45C862293B0F080C12A4EECB3084FBF0B8CDD83D(L_4, NULL);
+	}
+
+IL_0037:
+	{
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_5 = ___source0;
+		DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 L_6 = L_5;
+		RuntimeObject* L_7 = Box(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10), &L_6);
+		return ((*(uint64_t*)((uint64_t*)(uint64_t*)UnBox(L_7, il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 7)))));
+	}
+}
+// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.DateTimeOffset,System.UInt64>::<CastOnRead>g__HandleFailure|24_0(TSource)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m421285EA16CF78A250212673C5B2A5F5580D03AB_gshared (uint64_t ___source0, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		goto IL_0018;
+	}
+	{
+		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_1 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 25)) };
+		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
+		Type_t* L_2;
+		L_2 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_1, NULL);
+		ThrowHelper_ThrowInvalidOperationException_DeserializeUnableToAssignNull_mEADD0C71C1896AB70526F02F16CCA9DF430A427B(L_2, NULL);
+		return;
+	}
+
+IL_0018:
+	{
+		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_3 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 24)) };
+		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
+		Type_t* L_4;
+		L_4 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_3, NULL);
+		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_5 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 25)) };
+		Type_t* L_6;
+		L_6 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_5, NULL);
+		ThrowHelper_ThrowInvalidCastException_DeserializeUnableToAssignValue_mEDC3F06B4CE394CA1F7FDC3FF2E9902B02173DC5(L_4, L_6, NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -20500,409 +20917,6 @@ IL_0037:
 }
 // System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Decimal>::<CastOnRead>g__HandleFailure|24_0(TSource)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_m4193D18BDF44875F1BB048B4ABEA300B8FB399A8_gshared (Decimal_tDA6C877282B2D789CF97C0949661CC11D643969F ___source0, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		goto IL_0018;
-	}
-	{
-		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_1 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 25)) };
-		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
-		Type_t* L_2;
-		L_2 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_1, NULL);
-		ThrowHelper_ThrowInvalidOperationException_DeserializeUnableToAssignNull_mEADD0C71C1896AB70526F02F16CCA9DF430A427B(L_2, NULL);
-		return;
-	}
-
-IL_0018:
-	{
-		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_3 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 24)) };
-		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
-		Type_t* L_4;
-		L_4 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_3, NULL);
-		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_5 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 25)) };
-		Type_t* L_6;
-		L_6 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_5, NULL);
-		ThrowHelper_ThrowInvalidCastException_DeserializeUnableToAssignValue_mEDC3F06B4CE394CA1F7FDC3FF2E9902B02173DC5(L_4, L_6, NULL);
-		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Type System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::get_KeyType()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* CastingConverter_2_get_KeyType_m7606D6F59D11367C8FEAB9733F1DA6134074CFD3_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		Type_t* L_1;
-		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(13 /* System.Type System.Text.Json.Serialization.JsonConverter::get_KeyType() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		return L_1;
-	}
-}
-// System.Type System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::get_ElementType()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* CastingConverter_2_get_ElementType_mD4AB8802D0E8AA6824BE0890FA93F17C1E3F8D71_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		Type_t* L_1;
-		L_1 = VirtualFuncInvoker0< Type_t* >::Invoke(12 /* System.Type System.Text.Json.Serialization.JsonConverter::get_ElementType() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		return L_1;
-	}
-}
-// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::get_HandleNull()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_get_HandleNull_m8CF7A161D711738FB54526E54B1D728EF32064FF_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		NullCheck(L_0);
-		bool L_1;
-		L_1 = VirtualFuncInvoker0< bool >::Invoke(25 /* System.Boolean System.Text.Json.Serialization.JsonConverter`1<System.Double>::get_HandleNull() */, L_0);
-		return L_1;
-	}
-}
-// System.Text.Json.ConverterStrategy System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::get_ConverterStrategy()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t CastingConverter_2_get_ConverterStrategy_mB66758AB01C928FF1D7CBF0C7220F5166C8BFB43_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		uint8_t L_1;
-		L_1 = VirtualFuncInvoker0< uint8_t >::Invoke(5 /* System.Text.Json.ConverterStrategy System.Text.Json.Serialization.JsonConverter::get_ConverterStrategy() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		return L_1;
-	}
-}
-// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::get_SupportsCreateObjectDelegate()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_get_SupportsCreateObjectDelegate_m3D2F7ED63DF6F417C965DBA2EC7A1B9E3196735C_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		bool L_1;
-		L_1 = VirtualFuncInvoker0< bool >::Invoke(6 /* System.Boolean System.Text.Json.Serialization.JsonConverter::get_SupportsCreateObjectDelegate() */, (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0);
-		return L_1;
-	}
-}
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::.ctor(System.Text.Json.Serialization.JsonConverter`1<TSource>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2__ctor_m75DE9D749A79CA55BFE3F81E420C00F137B4F32E_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* ___sourceConverter0, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1__ctor_m6FA3DFCB67BD055D82DBC4C6A3317E61DAC66CBB((JsonConverter_1_t359D60499CA1D78CCEF63B2DF294A5321F2E7E74*)__this, (bool)0, il2cpp_rgctx_method(method->klass->rgctx_data, 3));
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = ___sourceConverter0;
-		__this->____sourceConverter_11 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->____sourceConverter_11), (void*)L_0);
-		NullCheck((JsonConverter_1_t359D60499CA1D78CCEF63B2DF294A5321F2E7E74*)__this);
-		JsonConverter_1_Initialize_mB811AB8C953D49727EED9DE096F03191A863EFD2((JsonConverter_1_t359D60499CA1D78CCEF63B2DF294A5321F2E7E74*)__this, il2cpp_rgctx_method(method->klass->rgctx_data, 5));
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_1 = ___sourceConverter0;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_1);
-		bool L_2;
-		L_2 = JsonConverter_get_IsInternalConverter_m3F6D0C0722D8FD57533189C2645030FB07A96AEE_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_1, NULL);
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
-		JsonConverter_set_IsInternalConverter_mB054A28BB915D42B82F816CA0E11C9CD57EB0000_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_2, NULL);
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_3 = ___sourceConverter0;
-		NullCheck(L_3);
-		bool L_4 = (bool)((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_3)->___IsInternalConverterForNumberType_5;
-		((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this)->___IsInternalConverterForNumberType_5 = L_4;
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_5 = ___sourceConverter0;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_5);
-		bool L_6;
-		L_6 = JsonConverter_get_RequiresReadAhead_m0AEDD274568F1B19A52DF1A6EF7EEC2EF17D0CB6_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_5, NULL);
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
-		JsonConverter_set_RequiresReadAhead_m5582B7B641025B0BAA55F81ADCE97E36A9DBDF2C_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_6, NULL);
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_7 = ___sourceConverter0;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_7);
-		bool L_8;
-		L_8 = JsonConverter_get_CanUseDirectReadOrWrite_mE1D5C56BEAC0A084D137B109347864E236355287_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_7, NULL);
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
-		JsonConverter_set_CanUseDirectReadOrWrite_m0E51E0526E0BD47E24A839266D241496EC091261_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_8, NULL);
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_9 = ___sourceConverter0;
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_9);
-		bool L_10;
-		L_10 = JsonConverter_get_CanBePolymorphic_m70362671690C01E809BC9121656CF387E1BABF78_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_9, NULL);
-		NullCheck((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this);
-		JsonConverter_set_CanBePolymorphic_m64C5B8CEE959D5087C91F323CB33AA690D78B840_inline((JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)__this, L_10, NULL);
-		return;
-	}
-}
-// System.Text.Json.Serialization.JsonConverter System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::get_SourceConverterForCastingConverter()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8* CastingConverter_2_get_SourceConverterForCastingConverter_m55FF677CAAF0246DA68ABE3D7C86EE882BA2F110_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		return (JsonConverter_tF959B6D2A456224E540D105EF06DF3821371E8F8*)L_0;
-	}
-}
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_Read_m23D1CC429F1DB79D88484C9EE210D87CDDAEAFEC_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
-		Type_t* L_2 = ___typeToConvert1;
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
-		NullCheck(L_0);
-		double L_4;
-		L_4 = VirtualFuncInvoker3< double, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(28 /* T System.Text.Json.Serialization.JsonConverter`1<System.Double>::Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
-		Guid_t L_5;
-		L_5 = CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
-		return L_5;
-	}
-}
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::Write(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_Write_mFA279FD770805233B7F12968EAC4B06EC6FA609F_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, Guid_t ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
-		Guid_t L_2 = ___value1;
-		double L_3;
-		L_3 = CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
-		NullCheck(L_0);
-		VirtualActionInvoker3< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, double, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(29 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.Double>::Write(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_3, L_4);
-		return;
-	}
-}
-// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::OnTryRead(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions,System.Text.Json.ReadStack&,T&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_OnTryRead_m34E259618DD0E171535E23B49DFC36606FEE3925_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9* ___state3, Guid_t* ___value4, const RuntimeMethod* method) 
-{
-	bool V_0 = false;
-	double V_1 = 0.0;
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
-		Type_t* L_2 = ___typeToConvert1;
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
-		ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9* L_4 = ___state3;
-		NullCheck(L_0);
-		bool L_5;
-		L_5 = VirtualFuncInvoker5< bool, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD*, ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9*, double* >::Invoke(27 /* System.Boolean System.Text.Json.Serialization.JsonConverter`1<System.Double>::OnTryRead(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions,System.Text.Json.ReadStack&,T&) */, L_0, L_1, L_2, L_3, L_4, (&V_1));
-		V_0 = L_5;
-		Guid_t* L_6 = ___value4;
-		double L_7 = V_1;
-		Guid_t L_8;
-		L_8 = CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0(L_7, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
-		*(Guid_t*)L_6 = L_8;
-		bool L_9 = V_0;
-		return L_9;
-	}
-}
-// System.Boolean System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::OnTryWrite(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Text.Json.WriteStack&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CastingConverter_2_OnTryWrite_m4AEA7CA477E1D838CADD85B29E0FF83F46B2F147_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, Guid_t ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, WriteStack_t1C9D84FF0610BA9C5DD5BF22A71049258F0E82C1* ___state3, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
-		Guid_t L_2 = ___value1;
-		double L_3;
-		L_3 = CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
-		WriteStack_t1C9D84FF0610BA9C5DD5BF22A71049258F0E82C1* L_5 = ___state3;
-		NullCheck(L_0);
-		bool L_6;
-		L_6 = VirtualFuncInvoker4< bool, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, double, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD*, WriteStack_t1C9D84FF0610BA9C5DD5BF22A71049258F0E82C1* >::Invoke(26 /* System.Boolean System.Text.Json.Serialization.JsonConverter`1<System.Double>::OnTryWrite(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Text.Json.WriteStack&) */, L_0, L_1, L_3, L_4, L_5);
-		return L_6;
-	}
-}
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::ReadAsPropertyName(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_ReadAsPropertyName_mA1D2CBD8B5D3F2F8A11FD674AB28B540C32C88C0_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
-		Type_t* L_2 = ___typeToConvert1;
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
-		NullCheck(L_0);
-		double L_4;
-		L_4 = VirtualFuncInvoker3< double, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(30 /* T System.Text.Json.Serialization.JsonConverter`1<System.Double>::ReadAsPropertyName(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
-		Guid_t L_5;
-		L_5 = CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
-		return L_5;
-	}
-}
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::ReadAsPropertyNameCore(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_ReadAsPropertyNameCore_m25B41BD7A8FEEBDFC5BBADD708479A15FFF22DDA_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, Type_t* ___typeToConvert1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
-		Type_t* L_2 = ___typeToConvert1;
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
-		NullCheck(L_0);
-		double L_4;
-		L_4 = VirtualFuncInvoker3< double, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, Type_t*, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(31 /* T System.Text.Json.Serialization.JsonConverter`1<System.Double>::ReadAsPropertyNameCore(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
-		Guid_t L_5;
-		L_5 = CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
-		return L_5;
-	}
-}
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_WriteAsPropertyName_mF67F821B61089A98BB8376375D2BBA9D6C920F3C_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, Guid_t ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
-		Guid_t L_2 = ___value1;
-		double L_3;
-		L_3 = CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
-		NullCheck(L_0);
-		VirtualActionInvoker3< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, double, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(32 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.Double>::WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_3, L_4);
-		return;
-	}
-}
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::WriteAsPropertyNameCore(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_WriteAsPropertyNameCore_m8DD74CA39D8DA9089717221C0B9E083497B81E4A_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, Guid_t ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, bool ___isWritingExtensionDataProperty3, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
-		Guid_t L_2 = ___value1;
-		double L_3;
-		L_3 = CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_4 = ___options2;
-		bool L_5 = ___isWritingExtensionDataProperty3;
-		NullCheck(L_0);
-		VirtualActionInvoker4< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, double, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD*, bool >::Invoke(33 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.Double>::WriteAsPropertyNameCore(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.JsonSerializerOptions,System.Boolean) */, L_0, L_1, L_3, L_4, L_5);
-		return;
-	}
-}
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::ReadNumberWithCustomHandling(System.Text.Json.Utf8JsonReader&,System.Text.Json.Serialization.JsonNumberHandling,System.Text.Json.JsonSerializerOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_ReadNumberWithCustomHandling_mF58EFAC468E8F053C1CB3503EBD22F271AA9A835_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* ___reader0, int32_t ___handling1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8* L_1 = ___reader0;
-		int32_t L_2 = ___handling1;
-		JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* L_3 = ___options2;
-		NullCheck(L_0);
-		double L_4;
-		L_4 = VirtualFuncInvoker3< double, Utf8JsonReader_t50B1BC01A960970568250B04FB9236B63B0996E8*, int32_t, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* >::Invoke(34 /* T System.Text.Json.Serialization.JsonConverter`1<System.Double>::ReadNumberWithCustomHandling(System.Text.Json.Utf8JsonReader&,System.Text.Json.Serialization.JsonNumberHandling,System.Text.Json.JsonSerializerOptions) */, L_0, L_1, L_2, L_3);
-		Guid_t L_5;
-		L_5 = CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0(L_4, il2cpp_rgctx_method(method->klass->rgctx_data, 8));
-		return L_5;
-	}
-}
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::WriteNumberWithCustomHandling(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.Serialization.JsonNumberHandling)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_WriteNumberWithCustomHandling_mDA723DA7D4F4AE9B2570D2468763ADED12136811_gshared (CastingConverter_2_tB7BE463E2987FCD88702DEF5613BA1FCA4359F16* __this, Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* ___writer0, Guid_t ___value1, int32_t ___handling2, const RuntimeMethod* method) 
-{
-	{
-		JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7* L_0 = (JsonConverter_1_t6E3073683039FBAE658B682BF7F5F34186E012C7*)__this->____sourceConverter_11;
-		Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0* L_1 = ___writer0;
-		Guid_t L_2 = ___value1;
-		double L_3;
-		L_3 = CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110(L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
-		int32_t L_4 = ___handling2;
-		NullCheck(L_0);
-		VirtualActionInvoker3< Utf8JsonWriter_tA826CDE54648E07350A13B36AFCA74528B41EFA0*, double, int32_t >::Invoke(35 /* System.Void System.Text.Json.Serialization.JsonConverter`1<System.Double>::WriteNumberWithCustomHandling(System.Text.Json.Utf8JsonWriter,T,System.Text.Json.Serialization.JsonNumberHandling) */, L_0, L_1, L_3, L_4);
-		return;
-	}
-}
-// T System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::CastOnRead(TSource)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t CastingConverter_2_CastOnRead_mD7B40288B2A3D35F0993B2161D7E3F19865BF5A0_gshared (double ___source0, const RuntimeMethod* method) 
-{
-	Guid_t V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	Guid_t V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	double V_2 = 0.0;
-	{
-		il2cpp_codegen_initobj((&V_1), sizeof(Guid_t));
-		goto IL_0032;
-	}
-	{
-		il2cpp_codegen_initobj((&V_2), sizeof(double));
-		goto IL_0032;
-	}
-	{
-		goto IL_0032;
-	}
-	{
-		il2cpp_codegen_initobj((&V_1), sizeof(Guid_t));
-		Guid_t L_3 = V_1;
-		return L_3;
-	}
-
-IL_0032:
-	{
-		double L_4 = ___source0;
-		double L_5 = L_4;
-		RuntimeObject* L_6 = Box(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 7), &L_5);
-		if (!((RuntimeObject*)IsInst((RuntimeObject*)L_6, il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10))))
-		{
-			goto IL_0052;
-		}
-	}
-	{
-		double L_7 = ___source0;
-		double L_8 = L_7;
-		RuntimeObject* L_9 = Box(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 7), &L_8);
-		V_0 = ((*(Guid_t*)((Guid_t*)(Guid_t*)UnBox(((RuntimeObject*)IsInst((RuntimeObject*)L_9, il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10))), il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10)))));
-		Guid_t L_10 = V_0;
-		return L_10;
-	}
-
-IL_0052:
-	{
-		double L_11 = ___source0;
-		CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_mA89D6495D9BC0418E6DCFC9D6899CD8AC7D81A16(L_11, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 23));
-		il2cpp_codegen_initobj((&V_1), sizeof(Guid_t));
-		Guid_t L_12 = V_1;
-		return L_12;
-	}
-}
-// TSource System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::CastOnWrite(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double CastingConverter_2_CastOnWrite_m34185E0D9BDB55E8BF37660A6C6CA3BCDFF7D110_gshared (Guid_t ___source0, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	double V_0 = 0.0;
-	Guid_t V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	{
-		il2cpp_codegen_initobj((&V_0), sizeof(double));
-	}
-	{
-		il2cpp_codegen_initobj((&V_1), sizeof(Guid_t));
-		goto IL_0037;
-	}
-	{
-		goto IL_0037;
-	}
-	{
-		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_3 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(InitializedTypeInfo(method->klass)->rgctx_data, 24)) };
-		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
-		Type_t* L_4;
-		L_4 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_3, NULL);
-		ThrowHelper_ThrowJsonException_DeserializeUnableToConvertValue_m45C862293B0F080C12A4EECB3084FBF0B8CDD83D(L_4, NULL);
-	}
-
-IL_0037:
-	{
-		Guid_t L_5 = ___source0;
-		Guid_t L_6 = L_5;
-		RuntimeObject* L_7 = Box(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 10), &L_6);
-		return ((*(double*)((double*)(double*)UnBox(L_7, il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 7)))));
-	}
-}
-// System.Void System.Text.Json.Serialization.Converters.CastingConverter`2<System.Guid,System.Double>::<CastOnRead>g__HandleFailure|24_0(TSource)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CastingConverter_2_U3CCastOnReadU3Eg__HandleFailureU7C24_0_mA89D6495D9BC0418E6DCFC9D6899CD8AC7D81A16_gshared (double ___source0, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)

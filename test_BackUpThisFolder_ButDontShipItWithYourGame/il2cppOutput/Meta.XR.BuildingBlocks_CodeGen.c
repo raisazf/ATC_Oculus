@@ -41,14 +41,14 @@ static Il2CppMethodPointer s_methodPointers[8] =
 };
 static const int32_t s_InvokerIndices[8] = 
 {
-	9372,
-	9372,
-	9310,
-	9524,
-	9524,
-	9524,
-	9524,
-	12595,
+	9385,
+	9385,
+	9323,
+	9537,
+	9537,
+	9537,
+	9537,
+	12608,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Meta_XR_BuildingBlocks_CodeGenModule;
 const Il2CppCodeGenModule g_Meta_XR_BuildingBlocks_CodeGenModule = 

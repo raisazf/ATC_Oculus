@@ -63342,6 +63342,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IListOfTConverter_2__ctor_mFBCC95867ADB3
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 // System.Void System.Text.Json.Serialization.Converters.IReadOnlyDictionaryOfTKeyTValueConverter`3<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType>::Add(TKey,TValue& modreq(System.Runtime.InteropServices.InAttribute),System.Text.Json.JsonSerializerOptions,System.Text.Json.ReadStack&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IReadOnlyDictionaryOfTKeyTValueConverter_3_Add_mD84CE5B7CFD48E9ED18C00D785ABAFDD01504E00_gshared (IReadOnlyDictionaryOfTKeyTValueConverter_3_t50A554A3320B2A4D6A0DB54FE7EE6005764BA97C* __this, /*Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType*/Il2CppFullySharedGenericAny ___key0, /*Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType& modreq(System.Runtime.InteropServices.InAttribute)*/Il2CppFullySharedGenericAny* ___value1, JsonSerializerOptions_t1BC3604A5B3A44F4A929837EF2DD3B9441AC05BD* ___options2, ReadStack_t3F5BA42D8204DB5EC2843D77EC7A94401EAFC7A9* ___state3, const RuntimeMethod* method) 
 {

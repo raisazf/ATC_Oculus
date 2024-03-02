@@ -28,10 +28,11 @@ namespace APIData
 
             if (!File.Exists(filePath))
             {
-                writer = new StreamWriter(filePath, true);
+                writer = new StreamWriter(filePath, false);
                 writer.Write("");
                 writer.Close();
             }
+
             GetDataFromAirLabApi();
             //GetDataFromAirLabApi();
             //GetDataFromAirLabApi();
@@ -60,7 +61,7 @@ namespace APIData
 
             flightResponse = JsonConvert.DeserializeObject<flights>(response.Content);
 
-            writer = new StreamWriter(filePath, true);
+            writer = new StreamWriter(filePath, false);
 
             string json = JsonUtility.ToJson(flightResponse);
 
