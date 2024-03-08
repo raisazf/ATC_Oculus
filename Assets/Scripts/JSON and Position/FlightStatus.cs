@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using System.Linq;
 
 // This class is responsible for identifying an airplane touched be the player.
 // 
@@ -18,46 +18,42 @@ using TMPro;
 
 public class FlightStatus : MonoBehaviour
 {
-    public bool isSelected = false;
     public Material selectedMat;
-    public TextMeshProUGUI flightName;
 
     private Material originalMat;
-    private string previousPlane;
+    private string previousPlaneName;
+
+    //private List<Renderer> planesMat;
 
     public void Start()
     {
-        originalMat = gameObject.GetComponent<Renderer>().material;
+        //var planesMat = new List<Renderer>();
+        originalMat = gameObject.GetComponentsInChildren<Renderer>()[2].material;
     }
     public void OnTriggerEnter(Collider other)
     {
-        previousPlane = gameObject.name;
-        Debug.Log("Aircraft " + gameObject.name + " isSelected " + isSelected + " Previous plane " + previousPlane);
         
-        if (other.CompareTag("Player") && !isSelected && gameObject.name != "PlaneHolderInside")
-        {
-            isSelected = true;
-            
+
+        var localPlanes = ListJsonPlaneLocation_zero.planes;
+        var localTags = localPlanes.Select(p => p.tag).ToList();
+        int inndx = localTags.IndexOf("Selected");
+
+        if (other.CompareTag("IndexFinger") && inndx == -1 && gameObject.name != "PlaneHolderInside")
+        { 
             gameObject.GetComponentsInChildren<Renderer>()[2].material = selectedMat; // highlight with a different material
+            gameObject.GetComponentInChildren<TextMeshPro>().text = gameObject.name; // display registration name
+            gameObject.tag = "Selected";
+            previousPlaneName = gameObject.name;
 
-            //flightName.text = gameObject.name;
-            flightName.GetComponent<TextMeshProUGUI>().text = gameObject.name;
-            
-            previousPlane = gameObject.name; // make sure
-
-            Debug.Log("Selected Aircraft " + gameObject.name + " " + isSelected + " " + previousPlane);
+            Debug.Log("Sel Aircraft" + other.tag + " name: "+ gameObject.name  + " " + gameObject.tag);
         }
-
-        else if (other.CompareTag("Player") && isSelected && gameObject.name == previousPlane)
-        
+        else if (other.CompareTag("IndexFinger") && inndx != 0 && gameObject.name==previousPlaneName)
         {
-            isSelected = false;
-           
             gameObject.GetComponentsInChildren<Renderer>()[2].material = originalMat;
+            gameObject.GetComponentInChildren<TextMeshPro>().text = "";
+            gameObject.tag = "Untagged";
 
-            flightName.GetComponent<TextMeshProUGUI>().text = "";
-
-            Debug.Log("Deselected Aircraft " + gameObject.name + " " + isSelected + " " + previousPlane);
+            Debug.Log("Des Aircraft " + other.tag + " name: " + gameObject.name + " " + gameObject.tag);
         }
     }
 }

@@ -1181,6 +1181,8 @@ struct Func_2_tF410043014FD16C2F22223C6C5575F1A96738C61;
 struct Func_2_t19E50C11C3E1F20B5A8FDB85D7DD353B6DFF868B;
 // System.Func`2<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,System.Object>
 struct Func_2_tED7CA67878EF0FB299872769153413F97964501A;
+// System.Func`2<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,System.Single>
+struct Func_2_tFAB3D8EFCE4F55CAB3F80EABAB10F8226D7FEBF6;
 // System.Func`2<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType>
 struct Func_2_t7F5F5324CE2DDB7001B68FFE29A5D9F907139FB0;
 // System.Func`2<UnityEngine.InputSystem.Layouts.InputControlLayout/ControlItem,System.Boolean>
@@ -9899,6 +9901,11 @@ struct Func_2_tED7CA67878EF0FB299872769153413F97964501A  : public MulticastDeleg
 {
 };
 
+// System.Func`2<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,System.Single>
+struct Func_2_tFAB3D8EFCE4F55CAB3F80EABAB10F8226D7FEBF6  : public MulticastDelegate_t
+{
+};
+
 // System.Func`2<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType,Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType>
 struct Func_2_t7F5F5324CE2DDB7001B68FFE29A5D9F907139FB0  : public MulticastDelegate_t
 {
@@ -11489,6 +11496,8 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Func_2_Invoke_mC3E902697752C
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Func_2_Invoke_m7B5463C16EB9F64736416D8F040E91BB3DEE153F_gshared_inline (Func_2_tD6E51019252E7D75CDCFF72CBA16F63B6A1C2D43* __this, OVRAnchor_tC6603E0C1628ACAA50D8CCDCC267BFD246F5A061 ___arg0, const RuntimeMethod* method) ;
 // TResult System.Func`2<System.UInt64,System.Boolean>::Invoke(T)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Func_2_Invoke_mA21C3F70234DB09A7EE1C0C10B4290C0C7D7E675_gshared_inline (Func_2_tCC2A29050F36A7F78CF277882751E9AAA1C6802B* __this, uint64_t ___arg0, const RuntimeMethod* method) ;
+// System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Select<System.Object,System.Single>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TResult>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Enumerable_Select_TisRuntimeObject_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m0D1B44AFBD2B7059BF6E998E94D46097B510E699_gshared (RuntimeObject* ___source0, Func_2_tB5C40A90702B6A6A2E315FD927EEFC9FB69F2B12* ___selector1, const RuntimeMethod* method) ;
 // System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::CastIterator<System.Collections.DictionaryEntry>(System.Collections.IEnumerable)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Enumerable_CastIterator_TisDictionaryEntry_t171080F37B311C25AA9E75888F9C9D703FA721BB_mD08E8908CD4168A75E8651BBDDC577FEAEA9D6ED_gshared (RuntimeObject* ___source0, const RuntimeMethod* method) ;
 // System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::CastIterator<System.Object>(System.Collections.IEnumerable)
@@ -12566,6 +12575,13 @@ inline bool Func_2_Invoke_mA21C3F70234DB09A7EE1C0C10B4290C0C7D7E675_inline (Func
 {
 	return ((  bool (*) (Func_2_tCC2A29050F36A7F78CF277882751E9AAA1C6802B*, uint64_t, const RuntimeMethod*))Func_2_Invoke_mA21C3F70234DB09A7EE1C0C10B4290C0C7D7E675_gshared_inline)(__this, ___arg0, method);
 }
+// System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Select<System.Object,System.Single>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TResult>)
+inline RuntimeObject* Enumerable_Select_TisRuntimeObject_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m0D1B44AFBD2B7059BF6E998E94D46097B510E699 (RuntimeObject* ___source0, Func_2_tB5C40A90702B6A6A2E315FD927EEFC9FB69F2B12* ___selector1, const RuntimeMethod* method)
+{
+	return ((  RuntimeObject* (*) (RuntimeObject*, Func_2_tB5C40A90702B6A6A2E315FD927EEFC9FB69F2B12*, const RuntimeMethod*))Enumerable_Select_TisRuntimeObject_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m0D1B44AFBD2B7059BF6E998E94D46097B510E699_gshared)(___source0, ___selector1, method);
+}
+// System.Single System.Linq.Enumerable::Average(System.Collections.Generic.IEnumerable`1<System.Single>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Enumerable_Average_m2DBF0BBC0642716C2296C5C3CC9AFF18F574C368 (RuntimeObject* ___source0, const RuntimeMethod* method) ;
 // System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::CastIterator<System.Collections.DictionaryEntry>(System.Collections.IEnumerable)
 inline RuntimeObject* Enumerable_CastIterator_TisDictionaryEntry_t171080F37B311C25AA9E75888F9C9D703FA721BB_mD08E8908CD4168A75E8651BBDDC577FEAEA9D6ED (RuntimeObject* ___source0, const RuntimeMethod* method)
 {
@@ -17636,6 +17652,34 @@ IL_004f:
 	{
 		bool L_15 = V_2;
 		return L_15;
+	}
+}
+// System.Single System.Linq.Enumerable::Average<System.Object>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Single>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Enumerable_Average_TisRuntimeObject_m79EFC1F93D13960E88E0589243ECDF599A49C545_gshared (RuntimeObject* ___source0, Func_2_tB5C40A90702B6A6A2E315FD927EEFC9FB69F2B12* ___selector1, const RuntimeMethod* method) 
+{
+	il2cpp_rgctx_method_init(method);
+	{
+		RuntimeObject* L_0 = ___source0;
+		Func_2_tB5C40A90702B6A6A2E315FD927EEFC9FB69F2B12* L_1 = ___selector1;
+		RuntimeObject* L_2;
+		L_2 = Enumerable_Select_TisRuntimeObject_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m0D1B44AFBD2B7059BF6E998E94D46097B510E699(L_0, L_1, il2cpp_rgctx_method(method->rgctx_data, 2));
+		float L_3;
+		L_3 = Enumerable_Average_m2DBF0BBC0642716C2296C5C3CC9AFF18F574C368(L_2, NULL);
+		return L_3;
+	}
+}
+// System.Single System.Linq.Enumerable::Average<Unity.IL2CPP.Metadata.__Il2CppFullySharedGenericType>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Single>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Enumerable_Average_TisIl2CppFullySharedGenericAny_m78E4BB83D2BBB76955BADA0DAF7EB22F8B7F6F2D_gshared (RuntimeObject* ___source0, Func_2_tFAB3D8EFCE4F55CAB3F80EABAB10F8226D7FEBF6* ___selector1, const RuntimeMethod* method) 
+{
+	il2cpp_rgctx_method_init(method);
+	{
+		RuntimeObject* L_0 = ___source0;
+		Func_2_tFAB3D8EFCE4F55CAB3F80EABAB10F8226D7FEBF6* L_1 = ___selector1;
+		RuntimeObject* L_2;
+		L_2 = InvokerFuncInvoker2< RuntimeObject*, RuntimeObject*, Func_2_tFAB3D8EFCE4F55CAB3F80EABAB10F8226D7FEBF6* >::Invoke(il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 2), NULL, L_0, L_1);
+		float L_3;
+		L_3 = Enumerable_Average_m2DBF0BBC0642716C2296C5C3CC9AFF18F574C368(L_2, NULL);
+		return L_3;
 	}
 }
 // System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Cast<System.Collections.DictionaryEntry>(System.Collections.IEnumerable)

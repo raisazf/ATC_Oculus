@@ -20,17 +20,17 @@ MonoBehaviour:
     isPrivate: 1
     createdAt: 2024-02-20T14:18:54-0800
     trainingStatus: 1
-    lastTrainDuration: 73
-    lastTrainedAt: 2024-02-20T16:18:40-0800
-    nextTrainAt: 2024-02-20T16:17:27-0800
+    lastTrainDuration: 54
+    lastTrainedAt: 2024-03-04T11:37:20-0800
+    nextTrainAt: 2024-03-04T11:36:26-0800
     intents:
     - id: 7033986710062291
       name: change_altitude
       entities:
       - name: wit$distance:distance
         id: 2899502840189827
-      - name: wit$phone_number:phone_number
-        id: 790688189757152
+      - name: wit$distance:distance
+        id: 1837905413304934
       - name: wit$phone_number:phone_number
         id: 1420800005488514
     entities:
@@ -42,60 +42,6 @@ MonoBehaviour:
         id: 2899502840189827
       - name: distance
         id: 1837905413304934
-      keywords: []
-    - name: wit$number
-      id: 535a80e2-6fc8-4991-b707-50dd0c862dfb
-      lookups: []
-      roles:
-      - name: 10
-        id: 3648446302066321
-      - name: 5000
-        id: 219215944547689
-      - name: 8000
-        id: 1308262436690296
-      - name: 10000
-        id: 1437188800200270
-      - name: 14000
-        id: 395671109825128
-      - name: 18000
-        id: 379269458379765
-      - name: 20000
-        id: 731973998691401
-      - name: 24000
-        id: 1493215741256456
-      - name: 30000
-        id: 1781737822309471
-      - name: 33000
-        id: 1863945844059547
-      - name: 34000
-        id: 607181071581877
-      - name: number
-        id: 391027143540709
-      keywords: []
-    - name: wit$ordinal
-      id: 535a80ec-1428-4aa6-9e7d-bfc52e99e115
-      lookups: []
-      roles:
-      - name: 1
-        id: 2733800213440253
-      - name: 2
-        id: 1026805465685375
-      - name: 3
-        id: 3766564663564965
-      - name: 4
-        id: 794613869371117
-      - name: 5
-        id: 1075836890296522
-      - name: 6
-        id: 1051543952603401
-      - name: 7
-        id: 1788887911631284
-      - name: 8
-        id: 830298012443809
-      - name: 9
-        id: 1109912053537257
-      - name: ordinal
-        id: 785043123653074
       keywords: []
     - name: wit$phone_number
       id: 535a810c-3885-41fe-a36f-3adfff96d72c
@@ -395,6 +341,7 @@ MonoBehaviour:
   useConduit: 1
   _manifestLocalPath: ConduitManifest-ad3c5272-b6bc-4ef9-9b7f-5e354b91dfb1.json
   excludedAssemblies:
-  - Oculus.Voice.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Meta.WitAi.Samples, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Meta.Voice.Samples.Chess, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Meta.Voice.Samples.ShapesConduit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   relaxedResolution: 0

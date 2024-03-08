@@ -73,6 +73,7 @@ struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915;
 
 IL2CPP_EXTERN_C RuntimeClass* ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Exception_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Int32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Math_tEB65DE7CA8B083C412C969C92981C030865486CE_il2cpp_TypeInfo_var;
@@ -1076,6 +1077,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Component__ctor_m4319162A6E6B02301078C12
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BoxCollider_set_center_Injected_mF2FF6FB33F950F7329395C6EC97E843ACDA52D8E (BoxCollider_tFA5D239388334D6DE0B8FFDAD6825C5B03786E23* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___value0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.BoxCollider::set_size_Injected(UnityEngine.Vector3&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BoxCollider_set_size_Injected_mFA7F15E94435D42A70D7C8543CEC7AF4F6D55343 (BoxCollider_tFA5D239388334D6DE0B8FFDAD6825C5B03786E23* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___value0, const RuntimeMethod* method) ;
+// System.Void System.Array::Copy(System.Array,System.Array,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Array_Copy_m4233828B4E6288B6D815F539AAA38575DE627900 (RuntimeArray* ___sourceArray0, RuntimeArray* ___destinationArray1, int32_t ___length2, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Collider::ClosestPoint_Injected(UnityEngine.Vector3&,UnityEngine.Vector3&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider_ClosestPoint_Injected_m4E218A16FABAA4615270B9CD82DC66E130AAFE77 (Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___position0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___ret1, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Collider::get_bounds_Injected(UnityEngine.Bounds&)
@@ -1188,6 +1191,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConfigurableJoint_set_angularYZDrive_Inj
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConfigurableJoint_get_slerpDrive_Injected_m6F7AE0A28412FDC513DDBFDB2D589775F5FB14E1 (ConfigurableJoint_t8B33AB5A6B8D52493F14C4B8DBDF78A1C94ECB77* __this, JointDrive_t02FEB3A7895F33D040010E2BE5377313FAFC3CB6* ___ret0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ConfigurableJoint::set_slerpDrive_Injected(UnityEngine.JointDrive&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConfigurableJoint_set_slerpDrive_Injected_m07427CF12C12E1879706DBEFE49F1BC191AB52CA (ConfigurableJoint_t8B33AB5A6B8D52493F14C4B8DBDF78A1C94ECB77* __this, JointDrive_t02FEB3A7895F33D040010E2BE5377313FAFC3CB6* ___value0, const RuntimeMethod* method) ;
+// UnityEngine.Vector3 UnityEngine.ContactPoint::get_normal()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ContactPoint_get_normal_mD7F0567CA2FD68644F7C6FE318E10C4D15F92AD6 (ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9* __this, const RuntimeMethod* method) ;
 // System.String UnityEngine.UnityString::Format(System.String,System.Object[])
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* UnityString_Format_m98A0629641086A1BE20BBF7F4EADDE3FE3877D85 (String_t* ___fmt0, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* ___args1, const RuntimeMethod* method) ;
 // System.String UnityEngine.PhysicsScene::ToString()
@@ -3695,6 +3700,50 @@ IL_000a:
 		return L_1;
 	}
 }
+// UnityEngine.ContactPoint[] UnityEngine.Collision::get_contacts()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* Collision_get_contacts_m2E8E27E0399230DFA4303A4F4D81C1BD55CBC473 (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	bool V_0 = false;
+	ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* V_1 = NULL;
+	{
+		ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* L_0 = __this->___m_LegacyContacts_6;
+		V_0 = (bool)((((RuntimeObject*)(ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411*)L_0) == ((RuntimeObject*)(RuntimeObject*)NULL))? 1 : 0);
+		bool L_1 = V_0;
+		if (!L_1)
+		{
+			goto IL_0039;
+		}
+	}
+	{
+		int32_t L_2 = __this->___m_ContactCount_4;
+		ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* L_3 = (ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411*)(ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411*)SZArrayNew(ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411_il2cpp_TypeInfo_var, (uint32_t)L_2);
+		__this->___m_LegacyContacts_6 = L_3;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_LegacyContacts_6), (void*)L_3);
+		ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* L_4 = __this->___m_ReusedContacts_5;
+		ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* L_5 = __this->___m_LegacyContacts_6;
+		int32_t L_6 = __this->___m_ContactCount_4;
+		Array_Copy_m4233828B4E6288B6D815F539AAA38575DE627900((RuntimeArray*)L_4, (RuntimeArray*)L_5, L_6, NULL);
+	}
+
+IL_0039:
+	{
+		ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* L_7 = __this->___m_LegacyContacts_6;
+		V_1 = L_7;
+		goto IL_0042;
+	}
+
+IL_0042:
+	{
+		ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411* L_8 = V_1;
+		return L_8;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -5358,6 +5407,32 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConfigurableJoint_set_slerpDrive_Injecte
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// UnityEngine.Vector3 UnityEngine.ContactPoint::get_normal()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ContactPoint_get_normal_mD7F0567CA2FD68644F7C6FE318E10C4D15F92AD6 (ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9* __this, const RuntimeMethod* method) 
+{
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0 = __this->___m_Normal_1;
+		V_0 = L_0;
+		goto IL_000a;
+	}
+
+IL_000a:
+	{
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = V_0;
+		return L_1;
+	}
+}
+IL2CPP_EXTERN_C  Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ContactPoint_get_normal_mD7F0567CA2FD68644F7C6FE318E10C4D15F92AD6_AdjustorThunk (RuntimeObject* __this, const RuntimeMethod* method)
+{
+	ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9* _thisAdjusted;
+	int32_t _offset = 1;
+	_thisAdjusted = reinterpret_cast<ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9*>(__this + _offset);
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 _returnValue;
+	_returnValue = ContactPoint_get_normal_mD7F0567CA2FD68644F7C6FE318E10C4D15F92AD6(_thisAdjusted, method);
+	return _returnValue;
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

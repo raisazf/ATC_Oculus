@@ -11,40 +11,39 @@ using System.Linq;
 
 public class ListJsonPlaneLocation_zero : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //public GameObject marker;
+
     [SerializeField] public GameObject GlobalSystem;
     [SerializeField] public GameObject marker;
     [SerializeField] public GameObject flightButtonsTemplate;
     [SerializeField] public GameObject flightButtonsParent;
 
-    [SerializeField] public float radiusAdjustment = 0.605f; // globe ball radius
+    [SerializeField] public float radiusAdjustment = 1; // globe ball radius (unity units 1m)
     [SerializeField] public float airportLatitude = 38.94846f;
     [SerializeField] public float airpotLongitude = -77.44057f;
     
     [SerializeField] public Material haloMat;
 
-    [SerializeField] public int altitudeScale = 1;
+    [SerializeField] public float altitudeScale = 1f;
+    [SerializeField] public float altIndexAjustment = 1f;
     [SerializeField] public float positionScale = 0.1f;
     [SerializeField] public float indexAdjustment=10f;
-    [SerializeField] private List<GameObject> flightButtons;
+
+    public static List<GameObject> flightButtons;
+    public static List<GameObject> planes;
 
     private List<string> flightNames;
-    private List<GameObject> planes;
     private List<string> flightNamesPrevious;
     private List<flights> requestFlightResponses;
     private flights flightResponse;
 
-    StreamReader streamReader;
-
     private float latitude = 0f; // lat
     private float longitude = 0f; // lng
     private float altitude = 0f; // alt
-    private float direction = 0f;
 
     private float radius;
     private float newRadius;
-    private float xPos, yPos, zPos;
+    //private float xPos, yPos, zPos;
+    private Vector3 newPosition;
 
     private List<float> latList;
     private List<float> lngList;
@@ -58,10 +57,11 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     private List<int> requestNumbers; // how many requests
     private string jsonString;
 
-    private int count = 0;
-    private float interval = 1f;
+    //private int count = 0;
+    private float interval = 60f;
     private float time = 0.0f;
 
+    private OVRCameraRig cameraRig;
     void Start()
     {
         planes = new List<GameObject>();
@@ -72,12 +72,17 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         requestNumbers = new List<int>();
         requestFlightResponses = new List<flights>();
 
+        radius = radiusAdjustment * GlobalSystem.transform.localScale.x;
+
+        cameraRig = FindObjectOfType<OVRCameraRig>();
+
         ReadJson();
 
     }
 
     public void Update()
     {
+        radius = radiusAdjustment * GlobalSystem.transform.localScale.x;
 
         // loop through all requests. use interval to set speed of calling PlaneLocation()
         for (int i = 0; i < requestFlightResponses.Count; i++)
@@ -88,10 +93,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
                 flightResponse = requestFlightResponses[i];
                 PlaneLocation();
                 time -= interval;
-                count = 0;
             }
-
-            count++;
         }
     }
 
@@ -113,61 +115,64 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     private void GetXYZPositions()
     {
 
-        radius = radiusAdjustment * GlobalSystem.transform.root.localScale.x;
-        Debug.Log("radius adjustments: " + radius + " = " + radiusAdjustment + " * " + GlobalSystem.transform.root.localScale.x);
-
-        newRadius = (float)((float)(2.093e7 + altitude) * radius / 2.093e7);
-
-        xPos = (newRadius) * Mathf.Cos(latitude + latIndex) * Mathf.Cos(longitude + lngIndex) + GlobalSystem.transform.position.x;
-        zPos = (newRadius) * Mathf.Cos(latitude + latIndex) * Mathf.Sin(longitude + lngIndex) + GlobalSystem.transform.position.z;
-        yPos = (newRadius) * Mathf.Sin(latitude + latIndex) + GlobalSystem.transform.position.y;
-
+        newRadius = (float)((float)(6.3781e6 + altitude/0.3048) * radius / 6.3781e6);
+        newPosition[0] = (newRadius) * Mathf.Cos(latitude + latIndex) * Mathf.Cos(longitude + lngIndex) + GlobalSystem.transform.position.x;
+        newPosition[2] = (newRadius) * Mathf.Cos(latitude + latIndex) * Mathf.Sin(longitude + lngIndex) + GlobalSystem.transform.position.z;
+        newPosition[1] = (newRadius) * Mathf.Sin(latitude + latIndex) + GlobalSystem.transform.position.y;
 
     }
 
     // If a flight doesn't exist, add it to the list of active flights
-    private void AddToList(FlightsEmbeddedField flight)
+    public void AddToList(FlightsEmbeddedField flight)
     {
 
         flightNames.Add(flight.reg_number);
 
-        altitude = flight.alt * altitudeScale;
-
-        direction = -flight.dir;
+        //altitude = flight.alt * altitudeScale;
+        altitude = altIndex;
 
         latitude = flight.lat * Mathf.Deg2Rad;
         longitude = flight.lng * Mathf.Deg2Rad;
 
         GetXYZPositions();
 
-        planes.Add(Instantiate(marker, new Vector3(xPos, yPos, zPos), Quaternion.identity, GlobalSystem.transform));
+        planes.Add(Instantiate(marker, newPosition, Quaternion.identity, GlobalSystem.transform));
 
 
         planes[flightNames.Count - 1].transform.LookAt(new Vector3(GlobalSystem.transform.position.x, GlobalSystem.transform.position.y, GlobalSystem.transform.position.z));
         planes[flightNames.Count - 1].name = flight.reg_number;
+        planes[flightNames.Count - 1].tag = "Untagged";
+
+        //planes[flightNames.Count - 1].GetComponentInChildren<TextMeshPro>().text = flight.reg_number; // too busy when every plane has a number displayed
 
         flightButtons.Add(Instantiate(flightButtonsTemplate,
             new Vector3(flightButtonsTemplate.transform.position.x,
             flightButtonsTemplate.transform.position.y, flightButtonsTemplate.transform.position.z),
             Quaternion.Euler(0f, 0f, 0f), flightButtonsParent.transform));
+        flightButtons[flightNames.Count - 1].name = flight.reg_number;
 
         // convert back for display purposes
         latitude = latitude * Mathf.Rad2Deg;
         longitude = longitude * Mathf.Rad2Deg;
 
+        
+
         // remove scale for altitude separation in VR
-        altitude = altitude / altitudeScale;
+        if (altitudeScale <= 0)
+        {
+            altitude = 0;
+        }
 
         string temp = flight.reg_number + "    " + latitude.ToString("F4") + "   " + longitude.ToString("F4") +
-            "    " + altitude.ToString("F0") + "    " + direction.ToString("F0");
+            "    " + flight.alt.ToString("F0") + "    " + flight.dir.ToString("F0");
 
-        flightButtons[flightNames.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = temp;
+        //flightButtons[flightNames.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = temp;
 
     }
 
-
     public void PlaneLocation()
     {
+
         int index = 0;
         var tempResponseNames = new List<string>();
 
@@ -175,10 +180,21 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
         latList = reorderParameterList("lat", airportLatitude);
         lngList = reorderParameterList("lng", airpotLongitude);
+        altList = reorderParameterList("alt", flightResponse.response.Average(item => item.alt));
+        //altList = flightResponse.response.Select(flt => flt.alt).ToList();
+
 
         foreach (var flight in flightResponse.response)
         {
             tempResponseNames.Add(flight.reg_number);
+        }
+
+        foreach (var plane in planes)
+        {
+            Vector3 cameraPosition = cameraRig.centerEyeAnchor.transform.position;
+            Debug.Log("Child # " + cameraPosition);
+            plane.transform.GetChild(2).transform.LookAt(cameraPosition);
+            //plane.transform.GetChild(2).GetChild(0).transform.LookAt(GlobalSystem.transform.position);
         }
 
         foreach (var flight in flightResponse.response)
@@ -210,8 +226,18 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
                 lngIndex = 0;
             }
 
+            if (flight.alt > flightResponse.response.Average(item => item.alt))
+            {
+                altIndex = (altList.IndexOf(flight.alt) + altList.IndexOf(flight.alt) / altIndexAjustment) * altitudeScale;
+            }
+            else
+            {
+                altIndex = (altList.IndexOf(flight.alt) + altList.IndexOf(flight.alt) / altIndexAjustment) * altitudeScale;
+            }
 
-            altIndex = lngList.IndexOf(flight.alt);
+            Debug.Log(string.Join(", ", altList));
+            Debug.Log("Altitude " + flight.alt  + " alt final Index " + altIndex);
+
 
             // if flight is in the active list, update its position
             if (flightNames.Contains(flight.reg_number))
@@ -245,7 +271,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
     private List<float> reorderParameterList(string infoType, float splitvalue)
     {
-        Debug.Log("Info Type = " + infoType + " splitvalue = " + splitvalue);
+        //Debug.Log("Info Type = " + infoType + " splitvalue = " + splitvalue);
 
         List<float> localList;
 
@@ -272,9 +298,13 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
         localList = localList.OrderBy(x => x).ToList();
 
+        
+
+        if (infoType == "alt") return localList;
+
         int splitIndex = localList.IndexOf(splitvalue);
 
-        Debug.Log("Info Type = " + infoType + " splitvalue = " + splitvalue + " split index" + splitIndex);
+        //Debug.Log("Info Type = " + infoType + " splitvalue = " + splitvalue + " split index" + splitIndex);
         List<float> firstHalf = localList.GetRange(0, splitIndex);
         List<float> secondHalf = localList.GetRange(splitIndex, localList.Count - splitIndex);
 
@@ -283,7 +313,8 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         List<float> reorderedList = firstHalf.Concat(secondHalf).ToList();
 
         string values = String.Join(", ", reorderedList);
-        Debug.Log("reorederList for " + infoType + " : " + values);
+        
+        //Debug.Log("reorederList for " + infoType + " : " + values);
 
         return reorderedList;
     }
@@ -291,16 +322,15 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     private void UpdatePlanePosition(int currentIndex, FlightsEmbeddedField flight)
     {
 
-        altitude = flight.alt * altitudeScale; // scale altitude to get a better separation in Oculus
-
-        direction = -flight.dir;
+        altitude = altIndex;
+        //altitude = flight.alt + altIndex; // scale altitude to get a better separation in Oculus
 
         latitude = flight.lat * Mathf.Deg2Rad;
         longitude = flight.lng * Mathf.Deg2Rad;
 
         GetXYZPositions();
 
-        planes[currentIndex].transform.position = new Vector3(xPos, yPos, zPos);
+        planes[currentIndex].transform.position = newPosition;
         planes[currentIndex].transform.rotation = Quaternion.identity;
 
         // adjust plane location to GlobalSystem rotation
@@ -320,24 +350,14 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         if (altitude <= 90f)
         {
             planes[currentIndex].transform.Rotate(0f, 0f, 0f, Space.Self);
-            direction = 0;
         }
         else
         {
-            planes[currentIndex].transform.Rotate(0f, 0f, direction, Space.Self);
-            direction = -direction;
+            planes[currentIndex].transform.Rotate(0f, 0f, -flight.dir, Space.Self);
         }
 
-
-        // remove altitude scale used for separation in VR
-        altitude = altitude / altitudeScale;
-
-        // parameters are converted back to degrees
-        latitude = latitude * Mathf.Rad2Deg;
-        longitude = longitude * Mathf.Rad2Deg;
-
         // update button information
-        string temp = flight.reg_number + "     " + latitude.ToString("F3") + "      " + longitude.ToString("F3") + "      " + altitude.ToString("F0") + "     " + direction.ToString("F0");
+        string temp = flight.reg_number + "     " + flight.lat.ToString("F3") + "      " + flight.lng.ToString("F3") + "      " + flight.alt.ToString("F0") + "     " + flight.dir.ToString("F0");
         flightButtons[currentIndex].GetComponentInChildren<TextMeshProUGUI>().text = temp;
 
     }
@@ -357,13 +377,16 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
     public void ReadJson()
     {
-        // For Windows platform as is.
-        // For Oculus, json file should be in the following folder:
-        // "This PC\Quest Pro\Internal shared storage\Android\data\com.DefaultCompany.ATC_test_v2\files" 
-        string filePath = Application.persistentDataPath + "/AirLab_data_test.json";
+        //StreamReader sr = new StreamReader("C:/Users/raisa/Documents/GitHub/ATC_test_v2 - Oculus/Assets/Resources/AirLab_data.json");
+        //StreamReader sr = new StreamReader("/storage/emulated/0/Android/data/com.DefaultCompany.ATC_test_v2/files/AirLab_data_test.json");
+        //streamReader = new StreamReader("C:/Users/raisa/AppData/LocalLow/DefaultCompany/ATC_test_v2/AirLab_data_test.json");
 
+        // Don't forget to move the files to Oculus when running on hdm
+        // ===> This PC\Quest Pro\Internal shared storage\Android\data\com.DefaultCompany.ATC_test_v2\files
 
-        streamReader = new StreamReader(filePath);       
+        StreamReader streamReader = new StreamReader( Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_test.json");
+        var path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_test.json";
+        Debug.Log("WhatIs: " + path);
 
         streamReader.BaseStream.Position = 0;
         jsonString = streamReader.ReadToEnd();
