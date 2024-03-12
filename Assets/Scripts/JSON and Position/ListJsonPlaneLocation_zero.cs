@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Unity.Collections;
 using TMPro;
 using System.IO;
 using RestSharp;
@@ -20,13 +21,13 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     [SerializeField] public float radiusAdjustment = 1; // globe ball radius (unity units 1m)
     [SerializeField] public float airportLatitude = 38.94846f;
     [SerializeField] public float airpotLongitude = -77.44057f;
-    
+
     [SerializeField] public Material haloMat;
 
     [SerializeField] public float altitudeScale = 1f;
     [SerializeField] public float altIndexAjustment = 1f;
     [SerializeField] public float positionScale = 0.1f;
-    [SerializeField] public float indexAdjustment=10f;
+    [SerializeField] public float indexAdjustment = 10f;
 
     public static List<GameObject> flightButtons;
     public static List<GameObject> planes;
@@ -43,6 +44,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     private float radius;
     private float newRadius;
     //private float xPos, yPos, zPos;
+    private Vector3 previousPosition;
     private Vector3 newPosition;
 
     private List<float> latList;
@@ -58,8 +60,12 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     private string jsonString;
 
     //private int count = 0;
-    private float interval = 60f;
+    public float interval = 1f;
     private float time = 0.0f;
+    public float transitionDuration = 1f;
+    public float speed = 0.1f;
+
+    private IEnumerator myEnumerator;
 
     private OVRCameraRig cameraRig;
     void Start()
@@ -84,6 +90,9 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     {
         radius = radiusAdjustment * GlobalSystem.transform.localScale.x;
 
+        //time += Time.deltaTime;
+        //while (time >= interval)
+        //{
         // loop through all requests. use interval to set speed of calling PlaneLocation()
         for (int i = 0; i < requestFlightResponses.Count; i++)
         {
@@ -95,27 +104,29 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
                 time -= interval;
             }
         }
+        //time -= interval;
+        //}
     }
 
     // Remove flights that left the region from the list of active flights.
-    private void RemoveFromList(int index)
+    private void RemoveFromList(int indexRemove)
     {
 
-        if (index < 0) return;
+        if (indexRemove < 0) return;
 
-        Destroy(planes[index]);
-        planes.RemoveAt(index);
+        Destroy(planes[indexRemove]);
+        planes.RemoveAt(indexRemove);
+        Destroy(flightButtons[indexRemove]);
+        flightButtons.RemoveAt(indexRemove);
+        flightNames.RemoveAt(indexRemove);
+        
 
-        Destroy(flightButtons[index]);
-        flightButtons.RemoveAt(index);
-
-        flightNames.RemoveAt(index);
     }
 
     private void GetXYZPositions()
     {
 
-        newRadius = (float)((float)(6.3781e6 + altitude/0.3048) * radius / 6.3781e6);
+        newRadius = (float)((float)(6.3781e6 + altitude / 0.3048) * radius / 6.3781e6);
         newPosition[0] = (newRadius) * Mathf.Cos(latitude + latIndex) * Mathf.Cos(longitude + lngIndex) + GlobalSystem.transform.position.x;
         newPosition[2] = (newRadius) * Mathf.Cos(latitude + latIndex) * Mathf.Sin(longitude + lngIndex) + GlobalSystem.transform.position.z;
         newPosition[1] = (newRadius) * Mathf.Sin(latitude + latIndex) + GlobalSystem.transform.position.y;
@@ -155,7 +166,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         latitude = latitude * Mathf.Rad2Deg;
         longitude = longitude * Mathf.Rad2Deg;
 
-        
+
 
         // remove scale for altitude separation in VR
         if (altitudeScale <= 0)
@@ -173,7 +184,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
     public void PlaneLocation()
     {
 
-        int index = 0;
+        int indexUpdate = 0;
         var tempResponseNames = new List<string>();
 
         var tempLatList = new List<float>();
@@ -202,11 +213,11 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
             if (flight.lat < airportLatitude)
             {
-                latIndex = -(latList.IndexOf(flight.lat)- latList.IndexOf(flight.lat)/ indexAdjustment) * positionScale;
+                latIndex = -(latList.IndexOf(flight.lat) - latList.IndexOf(flight.lat) / indexAdjustment) * positionScale;
             }
             else if (flight.lat > airportLatitude)
             {
-                latIndex = (latList.IndexOf(flight.lat)- latList.IndexOf(flight.lat)/ indexAdjustment) * positionScale;
+                latIndex = (latList.IndexOf(flight.lat) - latList.IndexOf(flight.lat) / indexAdjustment) * positionScale;
             }
             else
             {
@@ -215,7 +226,7 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
 
             if (flight.lng < airpotLongitude)
             {
-                lngIndex = -(lngList.IndexOf(flight.lng) - lngList.IndexOf(flight.lng)/ indexAdjustment) * positionScale;
+                lngIndex = -(lngList.IndexOf(flight.lng) - lngList.IndexOf(flight.lng) / indexAdjustment) * positionScale;
             }
             else if (flight.lat > airportLatitude)
             {
@@ -236,14 +247,15 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
             }
 
             Debug.Log(string.Join(", ", altList));
-            Debug.Log("Altitude " + flight.alt  + " alt final Index " + altIndex);
+            Debug.Log("Altitude " + flight.alt + " alt final Index " + altIndex);
 
 
             // if flight is in the active list, update its position
             if (flightNames.Contains(flight.reg_number))
             {
-                index = flightNames.FindIndex(a => a.Contains(flight.reg_number));
-                UpdatePlanePosition(index, flight);
+                indexUpdate = flightNames.FindIndex(a => a.Contains(flight.reg_number));
+                if (indexUpdate >= 0)
+                    UpdatePlanePosition(indexUpdate, flight);
             }
             else // add a new flight to the list
             {
@@ -258,14 +270,101 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
             if (!tempResponseNames.Contains(flight))
             {
                 // if a flight left the area if interest, remove it from the list of active flights
-                index = flightNames.FindIndex(a => a.Contains(flight));
-                RemoveFromList(index);
+                indexUpdate = flightNames.FindIndex(a => a.Contains(flight));
+                RemoveFromList(indexUpdate);
             }
         }
 
         flightNamesPrevious = flightNames;
 
         //SaveFlightInfo(flightNames, flightNames.Count);
+
+    }
+
+
+
+    private IEnumerator TransitionCoroutine(int currentIndex)
+    {
+        Debug.Log("CurrentIndex = " + currentIndex);
+        float elapsedTime = 0.0f;
+
+        if (transitionDuration < 0) transitionDuration = 1f;
+
+        while (elapsedTime < transitionDuration)
+        {
+            bool hasNext = myEnumerator.MoveNext();
+            if (hasNext)
+            {
+                Debug.Log("CurrentIndex = " + currentIndex);
+                planes[currentIndex].transform.position = Vector3.Lerp(previousPosition, newPosition, elapsedTime / transitionDuration);
+                elapsedTime += Time.deltaTime;
+            }
+            else 
+            {
+                yield break;
+            }
+            yield return null;
+        }
+        planes[currentIndex].transform.position = newPosition; // Ensure we reach the exact target position
+    }
+
+    private void UpdatePlanePosition(int currentIndex, FlightsEmbeddedField flight)
+    {
+
+        Debug.Log("currentIndex " + currentIndex);
+        if (planes[currentIndex]!=null)  previousPosition = planes[currentIndex].transform.position;
+
+        altitude = altIndex;
+        //altitude = flight.alt + altIndex; // scale altitude to get a better separation in Oculus
+
+        latitude = flight.lat * Mathf.Deg2Rad;
+        longitude = flight.lng * Mathf.Deg2Rad;
+
+        GetXYZPositions();
+
+        //Finish the loop
+        myEnumerator = TransitionCoroutine(currentIndex);
+        StartCoroutine(myEnumerator);
+
+        //var step = speed * Time.deltaTime; // calculate distance to move
+        //previousPosition = Vector3.MoveTowards(previousPosition, newPosition, step);
+
+        //// Check if the position of the cube and sphere are approximately equal.
+        //if (Vector3.Distance(previousPosition, newPosition) < 0.001f)
+        //{
+        //    // Swap the position of the cylinder.
+        //    newPosition *= -1.0f;
+        //}
+
+        planes[currentIndex].transform.position = newPosition;
+        planes[currentIndex].transform.rotation = Quaternion.identity;
+
+        // adjust plane location to GlobalSystem rotation
+        Quaternion rotation = Quaternion.Euler(0f, -(90f - GlobalSystem.transform.rotation.eulerAngles.y), 0f);
+        planes[currentIndex].transform.position = GlobalSystem.transform.position + rotation * (planes[currentIndex].transform.position - GlobalSystem.transform.position);
+        planes[currentIndex].transform.rotation = rotation * planes[currentIndex].transform.rotation;
+
+        // plane is perpendicular to surface normal
+        planes[currentIndex].transform.LookAt(new Vector3(GlobalSystem.transform.position.x, GlobalSystem.transform.position.y, GlobalSystem.transform.position.z));
+
+        if (flight.arr_iata == "DCA")
+        {
+            planes[currentIndex].gameObject.GetComponentsInChildren<Renderer>()[2].material = haloMat; // highlight with a different material
+        }
+
+        // adjust route direction. Set to zero if grounded
+        if (altitude <= 90f)
+        {
+            planes[currentIndex].transform.Rotate(0f, 0f, 0f, Space.Self);
+        }
+        else
+        {
+            planes[currentIndex].transform.Rotate(0f, 0f, -flight.dir, Space.Self);
+        }
+
+        // update button information
+        string temp = flight.reg_number + "     " + flight.lat.ToString("F3") + "      " + flight.lng.ToString("F3") + "      " + flight.alt.ToString("F0") + "     " + flight.dir.ToString("F0");
+        flightButtons[currentIndex].GetComponentInChildren<TextMeshProUGUI>().text = temp;
 
     }
 
@@ -291,14 +390,14 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         }
 
         //Airport location
-       localList.Insert(0, splitvalue);
+        localList.Insert(0, splitvalue);
 
         //splitvalue = localList.Average();
         localList.Insert(0, splitvalue);
 
         localList = localList.OrderBy(x => x).ToList();
 
-        
+
 
         if (infoType == "alt") return localList;
 
@@ -313,53 +412,10 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         List<float> reorderedList = firstHalf.Concat(secondHalf).ToList();
 
         string values = String.Join(", ", reorderedList);
-        
+
         //Debug.Log("reorederList for " + infoType + " : " + values);
 
         return reorderedList;
-    }
-
-    private void UpdatePlanePosition(int currentIndex, FlightsEmbeddedField flight)
-    {
-
-        altitude = altIndex;
-        //altitude = flight.alt + altIndex; // scale altitude to get a better separation in Oculus
-
-        latitude = flight.lat * Mathf.Deg2Rad;
-        longitude = flight.lng * Mathf.Deg2Rad;
-
-        GetXYZPositions();
-
-        planes[currentIndex].transform.position = newPosition;
-        planes[currentIndex].transform.rotation = Quaternion.identity;
-
-        // adjust plane location to GlobalSystem rotation
-        Quaternion rotation = Quaternion.Euler(0f, -(90f - GlobalSystem.transform.rotation.eulerAngles.y), 0f);
-        planes[currentIndex].transform.position = GlobalSystem.transform.position + rotation * (planes[currentIndex].transform.position - GlobalSystem.transform.position);
-        planes[currentIndex].transform.rotation = rotation * planes[currentIndex].transform.rotation;
-
-        // plane is perpendicular to surface normal
-        planes[currentIndex].transform.LookAt(new Vector3(GlobalSystem.transform.position.x, GlobalSystem.transform.position.y, GlobalSystem.transform.position.z));
-
-        if (flight.arr_iata == "IAD")
-        {
-            planes[currentIndex].gameObject.GetComponentsInChildren<Renderer>()[2].material = haloMat; // highlight with a different material
-        }
-
-        // adjust route direction. Set to zero if grounded
-        if (altitude <= 90f)
-        {
-            planes[currentIndex].transform.Rotate(0f, 0f, 0f, Space.Self);
-        }
-        else
-        {
-            planes[currentIndex].transform.Rotate(0f, 0f, -flight.dir, Space.Self);
-        }
-
-        // update button information
-        string temp = flight.reg_number + "     " + flight.lat.ToString("F3") + "      " + flight.lng.ToString("F3") + "      " + flight.alt.ToString("F0") + "     " + flight.dir.ToString("F0");
-        flightButtons[currentIndex].GetComponentInChildren<TextMeshProUGUI>().text = temp;
-
     }
 
     public void SaveFlightInfo(List<string> flightInfo, int indx)
@@ -384,14 +440,15 @@ public class ListJsonPlaneLocation_zero : MonoBehaviour
         // Don't forget to move the files to Oculus when running on hdm
         // ===> This PC\Quest Pro\Internal shared storage\Android\data\com.DefaultCompany.ATC_test_v2\files
 
-        StreamReader streamReader = new StreamReader( Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_test.json");
-        var path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_test.json";
+        StreamReader streamReader = new StreamReader(Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_new.json");
+        var path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_new.json";
         Debug.Log("WhatIs: " + path);
 
         streamReader.BaseStream.Position = 0;
         jsonString = streamReader.ReadToEnd();
         streamReader.Close();
 
+ 
         Int32 next = 0;
 
         // break json line (the entire request) into individual responses

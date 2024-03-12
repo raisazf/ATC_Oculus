@@ -354,13 +354,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_OnValidate
 	}
 	StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* V_0 = NULL;
 	{
-		// {
+		// string intentName = sessionData.response.GetIntentName();
 		VoiceSession_t375D68D23448E9C51C8E4CE1972477813E92E68B* L_0 = ___sessionData0;
 		NullCheck(L_0);
 		WitResponseNode_t1BFF810F15B21416F5F6D0A1CAAF03CEF942038C* L_1 = L_0->___response_1;
 		String_t* L_2;
 		L_2 = WitResultUtilities_GetIntentName_mEB978534EDE1631F1D0C314E716CD4EC2F878F8D(L_1, NULL);
-		// string intentName = sessionData.response.GetIntentName();
+		// if (string.Equals(intentName, COLOR_SET_INTENT_ID))
 		bool L_3;
 		L_3 = String_Equals_m3354EFE6393BED8DD6E18F69BEA131AAADCC622D(L_2, _stringLiteralA299AFFDAFD75A0C12981725D21E8BD0B5ED4878, NULL);
 		if (!L_3)
@@ -369,14 +369,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_OnValidate
 		}
 	}
 	{
-		// {
+		// string[] colorNames = sessionData.response.GetAllEntityValues(COLOR_ENTITY_ID);
 		VoiceSession_t375D68D23448E9C51C8E4CE1972477813E92E68B* L_4 = ___sessionData0;
 		NullCheck(L_4);
 		WitResponseNode_t1BFF810F15B21416F5F6D0A1CAAF03CEF942038C* L_5 = L_4->___response_1;
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_6;
 		L_6 = WitResultUtilities_GetAllEntityValues_m119620F2D3AE784C6B6202AA90B01ADB87AF80F0(L_5, _stringLiteral982EB241688495C1AF6152F618833411DB4F9B35, NULL);
 		V_0 = L_6;
-		// string[] colorNames = sessionData.response.GetAllEntityValues(PHONE_NUMBER_ENTITY_ID);
+		// if (colorNames != null && colorNames.Length > 0)
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_7 = V_0;
 		if (!L_7)
 		{
@@ -392,7 +392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_OnValidate
 		}
 	}
 	{
-		// {
+		// OnValidateColorSet(sessionData, colorNames[0]);
 		VoiceSession_t375D68D23448E9C51C8E4CE1972477813E92E68B* L_9 = ___sessionData0;
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_10 = V_0;
 		NullCheck(L_10);
@@ -413,7 +413,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_OnValidate
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		// Color c;
+		// if (TryGetColor(color, out c))
 		String_t* L_0 = ___color1;
 		bool L_1;
 		L_1 = LiveUnderstandingColorChanger_TryGetColor_m341B4303ED244838D9AE63DBE4E2D9D99B3F833F(__this, L_0, (&V_0), NULL);
@@ -423,10 +423,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_OnValidate
 		}
 	}
 	{
-		// {
+		// SetColor(c);
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2 = V_0;
 		LiveUnderstandingColorChanger_SetColor_m6C50693138BA306DCD2C401C562C7B68B79670EC(__this, L_2, NULL);
-		// SetColor(c);
+		// sessionData.validResponse = true;
 		VoiceSession_t375D68D23448E9C51C8E4CE1972477813E92E68B* L_3 = ___sessionData0;
 		NullCheck(L_3);
 		L_3->___validResponse_2 = (bool)1;
@@ -442,7 +442,7 @@ IL_0019:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool LiveUnderstandingColorChanger_TryGetColor_m341B4303ED244838D9AE63DBE4E2D9D99B3F833F (LiveUnderstandingColorChanger_t37E852581A43D039D31199E6D88433AC59E99C4A* __this, String_t* ___colorName0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* ___color1, const RuntimeMethod* method) 
 {
 	{
-		// // Check default
+		// if (ColorUtility.TryParseHtmlString(colorName, out color))
 		String_t* L_0 = ___colorName0;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* L_1 = ___color1;
 		bool L_2;
@@ -453,13 +453,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool LiveUnderstandingColorChanger_TryGetColo
 		}
 	}
 	{
-		// {
+		// return true;
 		return (bool)1;
 	}
 
 IL_000b:
 	{
-		// // Failed
+		// return false;
 		return (bool)0;
 	}
 }
@@ -475,12 +475,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_SetColor_m
 	RendererU5BU5D_t32FDD782F67917B2291EA4FF242719877440A02A* V_0 = NULL;
 	int32_t V_1 = 0;
 	{
-		// {
+		// Renderer[] renderers = _container.GetComponentsInChildren<Renderer>(true);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->____container_4;
 		NullCheck(L_0);
 		RendererU5BU5D_t32FDD782F67917B2291EA4FF242719877440A02A* L_1;
 		L_1 = Component_GetComponentsInChildren_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m28EB00D8747BD14E8E8EC3BFDB9D79F689CB0293(L_0, (bool)1, Component_GetComponentsInChildren_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_m28EB00D8747BD14E8E8EC3BFDB9D79F689CB0293_RuntimeMethod_var);
-		// Renderer[] renderers = _container.GetComponentsInChildren<Renderer>(true);
+		// foreach (var r in renderers)
 		V_0 = L_1;
 		V_1 = 0;
 		goto IL_0023;
@@ -488,13 +488,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LiveUnderstandingColorChanger_SetColor_m
 
 IL_0011:
 	{
-		// Renderer[] renderers = _container.GetComponentsInChildren<Renderer>(true);
+		// foreach (var r in renderers)
 		RendererU5BU5D_t32FDD782F67917B2291EA4FF242719877440A02A* L_2 = V_0;
 		int32_t L_3 = V_1;
 		NullCheck(L_2);
 		int32_t L_4 = L_3;
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_5 = (L_2)->GetAt(static_cast<il2cpp_array_size_t>(L_4));
-		// {
+		// r.material.color = newColor;
 		NullCheck(L_5);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6;
 		L_6 = Renderer_get_material_m5BA2A00816C4CC66580D4B2E409CF10718C15656(L_5, NULL);
@@ -507,7 +507,7 @@ IL_0011:
 
 IL_0023:
 	{
-		// Renderer[] renderers = _container.GetComponentsInChildren<Renderer>(true);
+		// foreach (var r in renderers)
 		int32_t L_9 = V_1;
 		RendererU5BU5D_t32FDD782F67917B2291EA4FF242719877440A02A* L_10 = V_0;
 		NullCheck(L_10);

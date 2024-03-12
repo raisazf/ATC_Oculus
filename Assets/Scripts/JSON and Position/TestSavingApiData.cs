@@ -18,13 +18,13 @@ namespace APIData
         private flights flightResponse;
 
         private int count = 0;
-        private float interval = 1f;
+        private float interval = 0.1f;
         private float time = 0.0f;
 
         public void Start()
         {
 
-            filePath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_test.json";
+            filePath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "AirLab_data_new.json";
 
             if (!File.Exists(filePath))
             {
@@ -37,18 +37,19 @@ namespace APIData
             //GetDataFromAirLabApi();
         }
 
-        //public void Update()
-        //{
-        //    time += Time.deltaTime;
-        //    while (time >= interval)
-        //    {
-        //        GetDataFromAirLabApi();
-        //        time -= interval;
-        //        count = 0;
-        //    }
+        public void Update()
+        {
+            //time += Time.deltaTime;
+            //while (time >= interval)
+            //{
+            //    GetDataFromAirLabApi();
+            //    time -= interval;
+            //    count = 0;
+            //}
 
-        //    count++;
-        //}
+                GetDataFromAirLabApi();
+                count++;
+        }
 
         public void GetDataFromAirLabApi()
         {

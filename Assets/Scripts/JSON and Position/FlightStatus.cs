@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 // This class is responsible for identifying an airplane touched be the player.
 // 
@@ -32,28 +33,102 @@ public class FlightStatus : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        
+
 
         var localPlanes = ListJsonPlaneLocation_zero.planes;
-        var localTags = localPlanes.Select(p => p.tag).ToList();
-        int inndx = localTags.IndexOf("Selected");
+        var localPlaneTags = localPlanes.Select(p => p.tag).ToList();
+        int indxPlane = localPlaneTags.IndexOf("Selected");
 
-        if (other.CompareTag("IndexFinger") && inndx == -1 && gameObject.name != "PlaneHolderInside")
-        { 
+        var localButtons = ListJsonPlaneLocation_zero.flightButtons;
+        var localButtonTags = localButtons.Select(b => b.tag).ToList();
+        int indxButton = localButtonTags.IndexOf("Selected");
+
+        var localPlaneNames = localPlanes.Select(p => p.name).ToList();
+        var localButtonNames = localButtons.Select(b => b.name).ToList();
+
+        //Debug.Log("Aircraft " + other.tag + " name: " + gameObject.name + " " + gameObject.tag + " plane index " + indxPlane + " button tag " + indxButton);
+
+        if (other.CompareTag("IndexFinger") && indxPlane == -1 && indxButton == -1 && gameObject.name != "PlaneHolderInside")
+        {
+            originalMat = gameObject.GetComponentsInChildren<Renderer>()[2].material;
+
             gameObject.GetComponentsInChildren<Renderer>()[2].material = selectedMat; // highlight with a different material
             gameObject.GetComponentInChildren<TextMeshPro>().text = gameObject.name; // display registration name
             gameObject.tag = "Selected";
+            localPlaneTags = localPlanes.Select(p => p.tag).ToList();
+            indxPlane = localPlaneTags.IndexOf("Selected");
+            localButtons[indxPlane].gameObject.tag = "Selected";
+
+            localButtons[indxPlane].gameObject.GetComponent<Button>().Select();
+
+            var colors = localButtons[indxPlane].GetComponent<Button>().colors;
+            colors.pressedColor = new Color(0f, 0f, 1f, 0.34f);
+            colors.selectedColor = new Color(0f, 0f, 1f, 0.34f);
+            localButtons[indxPlane].gameObject.GetComponent<Button>().colors = colors;
+
+            // Debug.Log("Inside Aircraft tag " + gameObject.tag);
+
             previousPlaneName = gameObject.name;
 
-            Debug.Log("Sel Aircraft" + other.tag + " name: "+ gameObject.name  + " " + gameObject.tag);
+            Debug.Log("Sel Aircraft " + other.tag + " name: " + gameObject.name + " " + gameObject.tag + " button tag " + localButtons[indxPlane].gameObject.tag);
+
+
         }
-        else if (other.CompareTag("IndexFinger") && inndx != 0 && gameObject.name==previousPlaneName)
+        else if (other.CompareTag("IndexFinger") && indxPlane != -1 && indxButton != -1 && gameObject.name == previousPlaneName)
         {
             gameObject.GetComponentsInChildren<Renderer>()[2].material = originalMat;
             gameObject.GetComponentInChildren<TextMeshPro>().text = "";
             gameObject.tag = "Untagged";
+            localButtons[indxPlane].gameObject.tag = "Untagged";
 
-            Debug.Log("Des Aircraft " + other.tag + " name: " + gameObject.name + " " + gameObject.tag);
+            //localButtons[indxPlane].gameObject.GetComponent<Button>().
+
+            var colors = localButtons[indxPlane].GetComponent<Button>().colors;
+            colors.pressedColor = Color.white;
+            colors.selectedColor = Color.white;
+            localButtons[indxPlane].gameObject.GetComponent<Button>().colors = colors;
+
+            Debug.Log("Des Aircraft " + other.tag + " name: " + gameObject.name + " " + gameObject.tag + " button tag " + localButtons[indxPlane].gameObject.tag);
+        }
+        else if ((indxPlane != -1 && indxButton == -1 && gameObject.name != previousPlaneName) || (indxPlane == -1 && indxButton != -1 && gameObject.name != previousPlaneName))
+        {
+            Debug.Log("reset all");
+
+            foreach (var plane in localPlanes)
+            {
+                Debug.Log("reset each plane");
+                plane.gameObject.GetComponentsInChildren<Renderer>()[2].material = originalMat;
+                plane.gameObject.GetComponentInChildren<TextMeshPro>().text = "";
+                plane.gameObject.tag = "Untagged";
+                Debug.Log("Aircraft reset 2?");
+
+                var indx = localButtonNames.IndexOf(plane.gameObject.name);
+
+                localButtons[indx].gameObject.tag = "Untagged";
+
+                Debug.Log("Aircraft reset 3?");
+
+
+                //localButtons[indxPlane].gameObject.GetComponent<Button>().
+                var colors = localButtons[indx].gameObject.GetComponent<Button>().colors;
+                Debug.Log("Aircraft reset 4?");
+                colors.pressedColor = Color.white;
+                Debug.Log("Aircraft reset 5?");
+                colors.selectedColor = Color.white;
+                Debug.Log("Aircraft reset 6?");
+                localButtons[indx].gameObject.GetComponent<Button>().colors = colors;
+
+
+                Debug.Log("Aircraft reset 7?");
+                Debug.Log("Des Aircraft button name: " + plane.gameObject.name +
+                    " pressed: " + localButtons[indx].gameObject.GetComponent<Button>().colors.pressedColor +
+                    " selected: " + localButtons[indx].gameObject.GetComponent<Button>().colors.selectedColor);
+
+                indxPlane = -1;
+                indxButton = -1;
+
+                Debug.Log("Des Aircraft button reset " + gameObject.name + " tag: " + gameObject.tag + " plane name " + plane.name + " plane tag " + plane.gameObject.tag);
+            }
         }
     }
 }
